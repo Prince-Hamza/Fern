@@ -1,0 +1,1134 @@
+{
+    "product_categories": [
+        {
+            "id": 1079,
+            "name": "Cabling Equipment",
+            "slug": "cabling-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/cabling-equipment-e1623589084792.jpg",
+            "count": 0
+        },
+        {
+            "id": 847,
+            "name": "Cable Accessory",
+            "slug": "cable-accessory",
+            "parent": 1079,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/cable-accessory-1.jpg",
+            "count": 1068
+        },
+        {
+            "id": 846,
+            "name": "Cable",
+            "slug": "cable",
+            "parent": 1079,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/cable.jpg",
+            "count": 3888
+        },
+        {
+            "id": 849,
+            "name": "Cable, Adapter &amp; Passive Equipment",
+            "slug": "cable-adapter-passive-equipment",
+            "parent": 1079,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/cable-adaptor-set.jpg",
+            "count": 1104
+        },
+        {
+            "id": 928,
+            "name": "Installation Cable",
+            "slug": "installation-cable",
+            "parent": 1079,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/installation-cable.jpg",
+            "count": 67
+        },
+        {
+            "id": 854,
+            "name": "Cable Clip \/ Clamp",
+            "slug": "cable-clip-clamp",
+            "parent": 1079,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/cable-clip-clamps.png",
+            "count": 5
+        },
+        {
+            "id": 917,
+            "name": "Shrink Tubing",
+            "slug": "shrink-tubing",
+            "parent": 1079,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/shrink-tubing.png",
+            "count": 62
+        },
+        {
+            "id": 1078,
+            "name": "Computer Peripheral",
+            "slug": "computer-peripheral",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/computer-peripheral.png",
+            "count": 0
+        },
+        {
+            "id": 504,
+            "name": "Webcam",
+            "slug": "webcam",
+            "parent": 1078,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/webcam.png",
+            "count": 73
+        },
+        {
+            "id": 912,
+            "name": "Keyboard",
+            "slug": "keyboard",
+            "parent": 1078,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/keyboard.png",
+            "count": 483
+        },
+        {
+            "id": 911,
+            "name": "Mouse",
+            "slug": "mouse",
+            "parent": 1078,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/mouse.png",
+            "count": 193
+        },
+        {
+            "id": 930,
+            "name": "Input Devices",
+            "slug": "input-devices",
+            "parent": 1078,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/input-devices.png",
+            "count": 13
+        },
+        {
+            "id": 915,
+            "name": "Presentation Remote",
+            "slug": "presentation-remote",
+            "parent": 1078,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/presentation-remote.png",
+            "count": 18
+        },
+        {
+            "id": 924,
+            "name": "PC Steering Wheel",
+            "slug": "pc-steering-wheel",
+            "parent": 1078,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/steering-wheel.png",
+            "count": 4
+        },
+        {
+            "id": 934,
+            "name": "Touchpad",
+            "slug": "touchpad",
+            "parent": 1078,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/touchpad.png",
+            "count": 3
+        },
+        {
+            "id": 919,
+            "name": "Trackball",
+            "slug": "trackball",
+            "parent": 1078,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/trackball.png",
+            "count": 0
+        },
+        {
+            "id": 1080,
+            "name": "Fiber Converter &amp; Transceiver",
+            "slug": "fiber-converter-transceiver",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/Fiber-converter-and-transceiver.png",
+            "count": 0
+        },
+        {
+            "id": 636,
+            "name": "Converter",
+            "slug": "converter",
+            "parent": 1080,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 189
+        },
+        {
+            "id": 613,
+            "name": "Transceiver",
+            "slug": "transceiver",
+            "parent": 1080,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 1639
+        },
+        {
+            "id": 1081,
+            "name": "KVM",
+            "slug": "kvm",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/KVM-1.png",
+            "count": 0
+        },
+        {
+            "id": 579,
+            "name": "KVM Accessory",
+            "slug": "kvm-accessory",
+            "parent": 1081,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 1
+        },
+        {
+            "id": 580,
+            "name": "KVM console",
+            "slug": "kvm-console",
+            "parent": 1081,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 8
+        },
+        {
+            "id": 497,
+            "name": "KVM Switches",
+            "slug": "kvm-switches",
+            "parent": 1081,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 154
+        },
+        {
+            "id": 1071,
+            "name": "Network Equipment",
+            "slug": "network-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/network-equipment.png",
+            "count": 0
+        },
+        {
+            "id": 1073,
+            "name": "Wireless Bridges &amp; Extenders",
+            "slug": "wireless-bridges-extenders",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/wireless-bridges-and-extenders.png",
+            "count": 129
+        },
+        {
+            "id": 1065,
+            "name": "Wireless Controller",
+            "slug": "wireless-controller",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/wireless-controller-1.png",
+            "count": 1
+        },
+        {
+            "id": 621,
+            "name": "Access Point",
+            "slug": "access-point",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/Access-point-1.png",
+            "count": 1475
+        },
+        {
+            "id": 496,
+            "name": "WLAN \/ Wifi Antenna",
+            "slug": "wlan-wifi-antenna",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/wlan-wifi-antenna-1.png",
+            "count": 224
+        },
+        {
+            "id": 611,
+            "name": "Gateway",
+            "slug": "gateway",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/gateway-1.png",
+            "count": 165
+        },
+        {
+            "id": 666,
+            "name": "Load Balancer",
+            "slug": "load-balancer",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/load-balancer.png",
+            "count": 0
+        },
+        {
+            "id": 473,
+            "name": "Firewalls",
+            "slug": "firewalls",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/firewall-1.png",
+            "count": 878
+        },
+        {
+            "id": 498,
+            "name": "Network security",
+            "slug": "network-security",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/network-security-1.png",
+            "count": 2355
+        },
+        {
+            "id": 475,
+            "name": "Network Accessory",
+            "slug": "network-accessory",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/network-accessory-1.png",
+            "count": 2361
+        },
+        {
+            "id": 500,
+            "name": "PoE Injector",
+            "slug": "poe-injector",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/poe-injector.png",
+            "count": 55
+        },
+        {
+            "id": 501,
+            "name": "PoE Splitter",
+            "slug": "poe-splitter",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/poe-splitter-1.png",
+            "count": 13
+        },
+        {
+            "id": 634,
+            "name": "Misc Network Equipment",
+            "slug": "misc-network-equipment",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 2713
+        },
+        {
+            "id": 623,
+            "name": "Router",
+            "slug": "router",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/router-1.png",
+            "count": 1449
+        },
+        {
+            "id": 622,
+            "name": "Network Switch",
+            "slug": "network-switch",
+            "parent": 1071,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/network-switches.png",
+            "count": 4377
+        },
+        {
+            "id": 1082,
+            "name": "Network Interface Module Cards",
+            "slug": "network-interface-module-cards",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/Network-Interface-Module-Cards.png",
+            "count": 0
+        },
+        {
+            "id": 628,
+            "name": "Control Module",
+            "slug": "control-module",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/control-module.png",
+            "count": 85
+        },
+        {
+            "id": 629,
+            "name": "Remote Maintenance Module",
+            "slug": "remote-maintenance-module",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/remote-maintenance-module.png",
+            "count": 17
+        },
+        {
+            "id": 897,
+            "name": "Network Module",
+            "slug": "network-module",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/network-module.png",
+            "count": 39
+        },
+        {
+            "id": 933,
+            "name": "Controller",
+            "slug": "controller",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/controller.png",
+            "count": 19
+        },
+        {
+            "id": 929,
+            "name": "Raid Controller",
+            "slug": "raid-controller",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/raid-controller.png",
+            "count": 37
+        },
+        {
+            "id": 935,
+            "name": "Firewire Controller",
+            "slug": "firewire-controller",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/firewire-controller.png",
+            "count": 10
+        },
+        {
+            "id": 927,
+            "name": "Interface Card",
+            "slug": "interface-card",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/interaface-card.png",
+            "count": 570
+        },
+        {
+            "id": 914,
+            "name": "Network Card",
+            "slug": "network-card",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/network-card.png",
+            "count": 399
+        },
+        {
+            "id": 920,
+            "name": "USB Controller",
+            "slug": "usb-controller",
+            "parent": 1082,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/usb-controller.png",
+            "count": 36
+        },
+        {
+            "id": 1077,
+            "name": "Power &amp; UPS",
+            "slug": "power-ups",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/power-and-ups.png",
+            "count": 0
+        },
+        {
+            "id": 906,
+            "name": "Power Supply",
+            "slug": "power-supply",
+            "parent": 1077,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 310
+        },
+        {
+            "id": 922,
+            "name": "UPS",
+            "slug": "ups",
+            "parent": 1077,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 565
+        },
+        {
+            "id": 921,
+            "name": "AC Adapter",
+            "slug": "ac-adapter",
+            "parent": 1077,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 88
+        },
+        {
+            "id": 931,
+            "name": "Line Interactive UPS",
+            "slug": "line-interactive-ups",
+            "parent": 1077,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 4
+        },
+        {
+            "id": 1084,
+            "name": "Racks &amp; Data Server Cabinets",
+            "slug": "racks-data-server-cabinets",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/Racks-Data-Server-Cabinets.png",
+            "count": 0
+        },
+        {
+            "id": 581,
+            "name": "Patch Panel",
+            "slug": "patch-panel",
+            "parent": 1084,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/patch-panel.png",
+            "count": 57
+        },
+        {
+            "id": 491,
+            "name": "Rack Accessories",
+            "slug": "rack-accessories",
+            "parent": 1084,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/rack-accessories.png",
+            "count": 1870
+        },
+        {
+            "id": 707,
+            "name": "Brackets",
+            "slug": "brackets-rack-accessories",
+            "parent": 491,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 522,
+            "name": "Rack Rails",
+            "slug": "rack-rails",
+            "parent": 1084,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/rack-rails.png",
+            "count": 58
+        },
+        {
+            "id": 521,
+            "name": "Rackmount",
+            "slug": "rackmount",
+            "parent": 1084,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/rack-mount.png",
+            "count": 61
+        },
+        {
+            "id": 523,
+            "name": "Racks &amp; Cabinets",
+            "slug": "racks-cabinets",
+            "parent": 1084,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/racks-and-cabinets.png",
+            "count": 592
+        },
+        {
+            "id": 709,
+            "name": "Wall Mount Rack",
+            "slug": "wall-mount-rack",
+            "parent": 1084,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/wall-mount-racks.png",
+            "count": 101
+        },
+        {
+            "id": 1074,
+            "name": "Server &amp; Storage",
+            "slug": "server-storage",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/server-and-storage.png",
+            "count": 0
+        },
+        {
+            "id": 703,
+            "name": "Server Accessory",
+            "slug": "server-accessory-server-storage",
+            "parent": 1074,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/server-accessory.png",
+            "count": 1028
+        },
+        {
+            "id": 696,
+            "name": "Servers",
+            "slug": "servers",
+            "parent": 1074,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/servers.png",
+            "count": 1379
+        },
+        {
+            "id": 710,
+            "name": "Blade Servers",
+            "slug": "blade-servers",
+            "parent": 1074,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/blade-servers.png",
+            "count": 51
+        },
+        {
+            "id": 701,
+            "name": "Storage Server",
+            "slug": "storage-server",
+            "parent": 1074,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/storage-serevrs.png",
+            "count": 792
+        },
+        {
+            "id": 704,
+            "name": "Storage Accessory",
+            "slug": "storage-accessory",
+            "parent": 1074,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/storagea-ccessories.png",
+            "count": 196
+        },
+        {
+            "id": 1076,
+            "name": "Surveillance Equipment",
+            "slug": "surveillance-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/Survelliance-equipment.png",
+            "count": 0
+        },
+        {
+            "id": 499,
+            "name": "Network Camera Accessory",
+            "slug": "network-camera-accessory",
+            "parent": 1076,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/network-accessory.png",
+            "count": 127
+        },
+        {
+            "id": 502,
+            "name": "Network Camera",
+            "slug": "network-camera",
+            "parent": 1076,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/network-camera.png",
+            "count": 1494
+        },
+        {
+            "id": 894,
+            "name": "Network Video Equipment",
+            "slug": "network-video-equipment",
+            "parent": 1076,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/network-video-equipment.png",
+            "count": 43
+        },
+        {
+            "id": 1083,
+            "name": "Unified Communication &amp; Collaboration Equipment",
+            "slug": "unified-communication-collaboration-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/Unified-Communication-Collaboration-Equipment.png",
+            "count": 0
+        },
+        {
+            "id": 598,
+            "name": "Phone",
+            "slug": "phone",
+            "parent": 1083,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/phone.png",
+            "count": 73
+        },
+        {
+            "id": 711,
+            "name": "PBX Accessory",
+            "slug": "pbx-accessory",
+            "parent": 1083,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/pbx-accessory.png",
+            "count": 11
+        },
+        {
+            "id": 713,
+            "name": "PBX",
+            "slug": "pbx",
+            "parent": 1083,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/pbx.png",
+            "count": 34
+        },
+        {
+            "id": 705,
+            "name": "Phone Accessory",
+            "slug": "phone-accessory",
+            "parent": 1083,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/phone-accessory.png",
+            "count": 41
+        },
+        {
+            "id": 718,
+            "name": "Analog Phone",
+            "slug": "analog-phone",
+            "parent": 1083,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/analog-phone.png",
+            "count": 13
+        },
+        {
+            "id": 720,
+            "name": "ISDN Comfort Phone",
+            "slug": "isdn-comfort-phone",
+            "parent": 1083,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/isdn-comfort-phone.png",
+            "count": 5
+        },
+        {
+            "id": 700,
+            "name": "VOIP Phones &amp; Equipment",
+            "slug": "voip-phones-equipment",
+            "parent": 1083,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/voip-telephone-equpment.png",
+            "count": 291
+        },
+        {
+            "id": 715,
+            "name": "VOIP Accessory",
+            "slug": "voip-accessory",
+            "parent": 1083,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/04\/voip-accessory.png",
+            "count": 18
+        },
+        {
+            "id": 845,
+            "name": "Adapter",
+            "slug": "adapter",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 903,
+            "name": "Other Accessory",
+            "slug": "other-accessory",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 839,
+            "name": "Electrical Supplies",
+            "slug": "electrical-supplies",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 633,
+            "name": "Access Point; Bridge; Repeater; Router",
+            "slug": "access-point-bridge-repeater-router-network-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 632,
+            "name": "Access Point; Load Balancer",
+            "slug": "access-point-load-balancer-network-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 493,
+            "name": "Antenna Accessory",
+            "slug": "antenna-accessory",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 487,
+            "name": "Antennas",
+            "slug": "antennas",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 495,
+            "name": "Other Antenna",
+            "slug": "other-antenna",
+            "parent": 487,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 627,
+            "name": "Bridge",
+            "slug": "bridge-network-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 662,
+            "name": "Bridge; Switch",
+            "slug": "bridge-switch-network-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 650,
+            "name": "Hub",
+            "slug": "hub-network-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 503,
+            "name": "Network Camera; Webcam",
+            "slug": "network-camera-webcam",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 492,
+            "name": "Racks",
+            "slug": "racks",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 624,
+            "name": "Repeater",
+            "slug": "repeater-network-equipment",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 918,
+            "name": "Remote",
+            "slug": "remote",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 926,
+            "name": "Modem",
+            "slug": "modem",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 916,
+            "name": "Barebone",
+            "slug": "barebone",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/barebone.png",
+            "count": 631
+        },
+        {
+            "id": 706,
+            "name": "Base Station",
+            "slug": "base-station-phones-phones-pbx",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 631,
+            "name": "Server Accessory",
+            "slug": "server-accessory",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 618,
+            "name": "Software &amp; Service Support License",
+            "slug": "software-service-support-license",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/03\/Software-Service-Support-License.png",
+            "count": 5224
+        },
+        {
+            "id": 474,
+            "name": "Security License",
+            "slug": "security-license",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/security-license-e1623589258671.jpg",
+            "count": 7144
+        },
+        {
+            "id": 519,
+            "name": "Network Security Accessory",
+            "slug": "network-security-accessory",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/network-security-accessory.jpg",
+            "count": 0
+        },
+        {
+            "id": 619,
+            "name": "Service &amp; Support",
+            "slug": "service-support",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/service-and-support.jpg",
+            "count": 5565
+        },
+        {
+            "id": 843,
+            "name": "Input Service &amp; Support",
+            "slug": "input-service-support",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/input-service-and-support.jpg",
+            "count": 6980
+        },
+        {
+            "id": 642,
+            "name": "Network Service &amp; Support",
+            "slug": "network-service-support",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/network-service-and-support.jpg",
+            "count": 39035
+        },
+        {
+            "id": 909,
+            "name": "Output Service &amp; Support",
+            "slug": "output-service-support",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/output-service-and-support.jpg",
+            "count": 102
+        },
+        {
+            "id": 841,
+            "name": "Software Service &amp; Support",
+            "slug": "software-service-support",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/software-service-and-support.jpg",
+            "count": 17334
+        },
+        {
+            "id": 840,
+            "name": "Storage Service &amp; Support",
+            "slug": "storage-service-support",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/storage-service-and-support.jpg",
+            "count": 3682
+        },
+        {
+            "id": 902,
+            "name": "Systems Service &amp; Support",
+            "slug": "systems-service-support",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/system-service-and-support.jpg",
+            "count": 5845
+        },
+        {
+            "id": 692,
+            "name": "Operating Systems",
+            "slug": "operating-systems",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/operating-systems.jpg",
+            "count": 67
+        },
+        {
+            "id": 932,
+            "name": "Software Accessory",
+            "slug": "software-accessory",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 0
+        },
+        {
+            "id": 639,
+            "name": "Subscription License",
+            "slug": "subscription-license",
+            "parent": 618,
+            "description": "",
+            "display": "default",
+            "image": "https:\/\/firewallforce.se\/wp-content\/uploads\/2021\/06\/subscription-license.jpg",
+            "count": 7851
+        },
+        {
+            "id": 15,
+            "name": "Uncategorized",
+            "slug": "uncategorized",
+            "parent": 0,
+            "description": "",
+            "display": "default",
+            "image": "",
+            "count": 127
+        }
+    ]
+}
