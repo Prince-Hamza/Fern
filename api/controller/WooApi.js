@@ -3,6 +3,14 @@ const ProductsInfo = require('../data/ProductsV3.json')
 
 
 
+emailInfo = (req,res) => {
+    firebase.database().ref('/EmailApi').once('value').then((res)=>{
+       var data = res.val()
+       res.json(data);
+    })
+}
+
+
 const ByCategory = async (req, res) => {
 
     var count = 0
@@ -21,6 +29,7 @@ const ByCategory = async (req, res) => {
 
 
 
+
 const Info = (req, res) => {
     const Category = req.url.split('/')[2]
     const categoryFiltered = Category.substring(0, 1).toUpperCase() + Category.substring(1, Category.length)
@@ -35,30 +44,25 @@ const Info = (req, res) => {
 }
 
 const Categories = async (req, res) => {
+    const CK = `consumer_key=ck_42a75ce7a233bc1e341e33779723c304e6d820cc`
+    const CS = `consumer_secret=cs_6e5a683ab5f08b62aa1894d8d2ddc4ad69ff0526`
+    const Api = `https://firewallforce.se/wc-api/v3/products?filter[limit]=5&filter[category]=cable&page=1`
 
-    const Category = req.url.split('/')[2]
-    var filtered = '', respArray = []
-    // Ac Adapter
-    if (Category.includes('-')) {
-        var Arr = Category.split('-')
-        Arr = Arr.map((Word) => FirstCapital(Word))
-        filtered = Arr.join(' ')
-    } else {
-        filtered = FirstCapital(Category)
-    }
-
-    console.log(filtered)
-    const Res = res
-    firebase.database().ref(`category/${filtered}`)
-        .once('value').then((res) => {
-            res.forEach((item) => {
-                let data = item.val()
-                respArray.push(data)
-            })
-            console.log(respArray[0])
-            return Res.json({ Count: respArray.length, Products: respArray })
+    fetch(`${Api}&${CK}&${CS}`).then((resp) => {
+        resp.json().then((res) => {
+            console.log(res)
+            return res.json(res)
         })
+    })
+
+
 }
+
+
+
+
+
+
 
 const FirstCapital = (Term) => {
     return Term.substring(0, 1).toUpperCase() + Term.substring(1, Term.length)
@@ -69,5 +73,6 @@ const FirstCapital = (Term) => {
 module.exports = {
     ByCategory,
     Categories,
-    Info
+    Info,
+    emailInfo
 }

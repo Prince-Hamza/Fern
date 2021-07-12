@@ -7,8 +7,9 @@ const router = express.Router()
 
 router.get('/firetest', FireController.getInfo)
 router.get('/writebycategory', WooApi.ByCategory)
-router.get('/category/:id', WooApi.Categories)
+router.get('/category', WooApi.Categories)
 router.get('/info/:id', WooApi.Info)
+router.get('/emailinfo', WooApi.emailInfo)
 
 
 module.exports = router
