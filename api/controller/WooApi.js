@@ -3,11 +3,14 @@ const ProductsInfo = require('../data/ProductsV3.json')
 
 
 
-emailInfo = (req,res) => {
-    firebase.database().ref('/EmailApi').once('value').then((res)=>{
-       var data = res.val()
-       res.json(data);
-    })
+const emailInfo = async (req,res) => {
+   var resp = await firebase.database().ref('/EmailApi').once('value')
+   var ar = []
+   resp.forEach((item)=>{
+     ar.push(item.val())
+   })
+   console.log('okokok')
+   res.send(ar)
 }
 
 

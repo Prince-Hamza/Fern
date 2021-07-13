@@ -1,12 +1,12 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyDFjBJKK27KVIOSVHuAfsTxxsBv1Eo8Vgs",
-    authDomain: "abc-best-services.firebaseapp.com",
-    databaseURL: "https://abc-best-services-default-rtdb.firebaseio.com",
-    projectId: "abc-best-services",
-    storageBucket: "abc-best-services.appspot.com",
-    messagingSenderId: "868747617375",
-    appId: "1:868747617375:web:119d70071c12bc539ea7ea"
-  };
+  apiKey: "AIzaSyCnD-xueHVA0gwNjBLUu5hlB8x8jhMMgOw",
+  authDomain: "kidland-5754b.firebaseapp.com",
+  databaseURL: "https://kidland-5754b-default-rtdb.firebaseio.com",
+  projectId: "kidland-5754b",
+  storageBucket: "kidland-5754b.appspot.com",
+  messagingSenderId: "291891653552",
+  appId: "1:291891653552:web:19a1a9a416f4201f0ac475"
+};
 
 
   module.exports = firebaseConfig 
