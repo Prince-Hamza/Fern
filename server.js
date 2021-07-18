@@ -15,8 +15,8 @@ firebase.initializeApp(firebaseConfig)
 app.use('/api', firebaseRouter)
 // app.use('/' , express.static(__dirname + '/build'))
 
-const port = process.env.PORT;
-app.listen(port)
+//const port = process.env.PORT;
+app.listen(process.env.PORT)
 console.log(`Server running on port: ${port}`)
 
 
