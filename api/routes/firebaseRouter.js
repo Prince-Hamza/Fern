@@ -10,6 +10,9 @@ router.get('/writebycategory', WooApi.ByCategory)
 router.get('/category', WooApi.Categories)
 router.get('/info/:id', WooApi.Info)
 router.get('/emailinfo', WooApi.emailInfo)
+router.get('/imageproxy/:id', WooApi.ImageProxy)
 
 
 module.exports = router
+
+
