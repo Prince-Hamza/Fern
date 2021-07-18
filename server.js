@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
 
-firebase.initializeApp(firebaseConfig)
+//firebase.initializeApp(firebaseConfig)
 app.use('/api', firebaseRouter)
 // app.use('/' , express.static(__dirname + '/build'))
 
