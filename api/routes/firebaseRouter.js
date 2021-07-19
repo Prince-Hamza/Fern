@@ -11,6 +11,9 @@ router.get('/category', WooApi.Categories)
 router.get('/info/:id', WooApi.Info)
 router.get('/emailinfo', WooApi.emailInfo)
 router.get('/imageproxy/:id', WooApi.ImageProxy)
+router.get('/signup/:id', WooApi.SignUp)
+router.get('/signin/:id', WooApi.SignIn)
+
 
 
 module.exports = router
