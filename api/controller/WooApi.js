@@ -3,66 +3,14 @@ const ProductsInfo = require('../data/ProductsV3.json')
 const admin = require('firebase-admin');
 const serviceAccount = require('./servicekey.json');
 const axios = require('axios')
-
-
-
-const emailInfo = async (req,res) => {
-   var resp = await firebase.database().ref('/EmailApi').once('value')
-   var ar = []
-   resp.forEach((item)=>{
-     ar.push(item.val())
-   })
-   console.log('okokok')
-   res.send(ar)
-}
-
-
-const ByCategory = async (req, res) => {
-
-    var count = 0
-    ProductsInfo.products.forEach((Product) => {
-        let productCat = Product.categories[0]
-        firebase.database().ref(`/category/${productCat}`).push(Product)
-        count++
-        console.log(`Saved To Firebase :: ${count}`)
-    })
-
-    console.log('Success')
-
-    return res.json({ Success: true })
-}
+const fetch = require('node-fetch')
 
 
 
 
 
-const Info = (req, res) => {
-    const Category = req.url.split('/')[2]
-    const categoryFiltered = Category.substring(0, 1).toUpperCase() + Category.substring(1, Category.length)
-    var c = 0
-    firebase.database().ref(`/category/${categoryFiltered}`)
-        .once('value', (resp) => {
-            resp.forEach(item => {
-                c++
-            })
-            return res.send(`<h5>Category:${categoryFiltered}  ______________________________ Products:${c}</h5>`)
-        })
-}
-
-const Categories = async (req, res) => {
-    const CK = `consumer_key=ck_42a75ce7a233bc1e341e33779723c304e6d820cc`
-    const CS = `consumer_secret=cs_6e5a683ab5f08b62aa1894d8d2ddc4ad69ff0526`
-    const Api = `https://firewallforce.se/wc-api/v3/products?filter[limit]=5&filter[category]=cable&page=1`
-
-    fetch(`${Api}&${CK}&${CS}`).then((resp) => {
-        resp.json().then((res) => {
-            console.log(res)
-            return res.json(res)
-        })
-    })
 
 
-}
 
 
 const FirstCapital = (Term) => {
@@ -136,61 +84,45 @@ const getRandom = (min, max) => {
 }
 
 
-
-const FireSignUp = async (Email , Password) => {
-    const response = await firebase.auth().createUserWithEmailAndPassword(Email, Password);
-    const Id = response.user.uid
-    console.log ('Response :: ' + Id);
-    return Id 
-  }
-
-const FireSignIn = async (Email,Password) => {
-  const response = await firebase.auth().signInWithEmailAndPassword(Email, Password);
-  const Id = response.user.uid
-  console.log('Resp : ' + Id);
-  return Id
+const WooRequest = (start,end) => {
+   fetch(`https://firewallforce.se/wp-json/wc/v3/update64?start=${start}&end=${end}`).then((resp)=>{
+      resp.json().then((data)=>{
+         console.log(JSON.stringify(data))
+      })
+   })
 }
 
-const SignUp = async (req,res) => {
-    
-    const input = req.url.split('/')[2]
-    const array = input.split('&')
-    const EmailParam = array[0] , PassParam = array[1]
-    const Email = EmailParam.split('=')[1] , Pass = PassParam.split('=')[1]
-
-
-   try {
-       const userId = await FireSignUp(Email,Pass)
-       res.json({UserId:userId , Mesage:'User Created Successfully'})
-   } catch (ex) {
-       res.send(ex)
-   }
-  
+const WooParallel = (req,res) => {
+    //WooRequest(20,23)
+    return res.send('ok')
 }
 
-const SignIn = async (req,res) => {
+const currencyExchange = async (req,res) => {
 
-    const input = req.url.split('/')[2]
-    const array = input.split('&')
-    const EmailParam = array[0] , PassParam = array[1]
-    const Email = EmailParam.split('=')[1] , Pass = PassParam.split('=')[1]
+        const Eur = req.params.amount;
 
+        const cExRate = await fetch('https://currencyapi.net/api/v1/rates?key=McRbxJQKvXlfe5D6EHIv2Q8qtSxTD37zEq9m&output=JSON');
+        const cinf = await cExRate.json();
 
-    try {
-        const userid = await FireSignIn(Email,Pass)
-        res.json({Message:'Sign In Successful' , UserId: userid})
-    } catch (ex) {
-        res.send(ex)
-    }
-    
+        	
+        var EurInApi = cinf.rates.EUR;
+        var intEur = EurInApi + 0;
+        var cnvbase = 1 / intEur; // Eur * by cnvbase = usd value	
+          
+        var USdollar = Eur * cnvbase;	
+        var SEK = cinf.rates.SEK;
+        var Krona = USdollar * SEK;	
+        return res.send(Krona.toString());
+          
 }
+
+
+
+
+
 
 module.exports = {
-    ByCategory,
-    Categories,
-    Info,
-    emailInfo,
     ImageProxy,
-    SignIn,
-    SignUp
+    WooParallel,
+    currencyExchange
 }
