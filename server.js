@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 
 firebase.initializeApp(firebaseConfig)
 app.use('/api', firebaseRouter)
-// app.use('/' , express.static(__dirname + '/build'))
+ app.use('/' , express.static(__dirname + '/view/build'))
 
 const port = process.env.PORT;
 app.listen(port)
