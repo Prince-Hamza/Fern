@@ -3,7 +3,7 @@ const ProductsInfo = require('../data/ProductsV3.json')
 const admin = require('firebase-admin');
 const serviceAccount = require('./servicekey.json');
 const axios = require('axios')
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
 
 
@@ -99,8 +99,9 @@ const WooParallel = (req,res) => {
 
 const currencyExchange = async (req,res) => {
 
+        //Connect() // connect to firebase
+        //await TodayUpdated() ? if currency value updated today:GetValue else get val from api
         const Eur = req.params.amount;
-
         const cExRate = await fetch('https://currencyapi.net/api/v1/rates?key=McRbxJQKvXlfe5D6EHIv2Q8qtSxTD37zEq9m&output=JSON');
         const cinf = await cExRate.json();
 
@@ -116,6 +117,10 @@ const currencyExchange = async (req,res) => {
           
 }
 
+const stream = (req,res) => {
+    return res.send("ok")
+}
+
 
 
 
@@ -124,5 +129,6 @@ const currencyExchange = async (req,res) => {
 module.exports = {
     ImageProxy,
     WooParallel,
-    currencyExchange
+    currencyExchange,
+    stream
 }

@@ -14,6 +14,7 @@ const router = express.Router()
 router.get('/signup/:id', FireController.SignUp)
 router.get('/signin/:id', FireController.SignIn)
 router.get('/eurtokrona/:amount', WooApi.currencyExchange)
+router.get('/stream', WooApi.stream)
 
 
 
