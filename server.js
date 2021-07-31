@@ -6,7 +6,7 @@ const firebaseRouter = require('./api/routes/firebaseRouter')
 const firebase = require('firebase')
 const firebaseConfig = require('./api/config')
 require('dotenv').config()
-console.log("start")
+console.log("startify")
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
