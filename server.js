@@ -6,7 +6,7 @@ const firebaseRouter = require('./api/routes/firebaseRouter')
 const firebase = require('firebase')
 const firebaseConfig = require('./api/config')
 require('dotenv').config()
-console.log("cmon")
+console.log("start")
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
