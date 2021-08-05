@@ -7,7 +7,7 @@ const firebase = require('firebase')
 const firebaseConfig = require('./api/config')
 require('dotenv').config()
 
-console.log("startify")
+console.log("startif")
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
