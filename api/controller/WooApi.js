@@ -4,13 +4,14 @@ const admin = require('firebase-admin');
 const serviceAccount = require('./servicekey.json');
 const axios = require('axios')
 const fetch = require('node-fetch');
-
-
+var request = require('request'), JSONStream = require('JSONStream'), es = require('event-stream')
+const hyperrequest = require('hyperrequest')
+const fs = require('fs');
 
 
 
 const Once = async (Ref) => {
-    
+
     const info = await firebase.database().ref(Ref).once('value')
     console.log(info)
     return info
@@ -108,16 +109,16 @@ const WooParallel = (req, res) => {
 const useCurrencyResp = async (cinf, Eur) => {
     console.log('currency Resp')
 
-     const cExRate = await fetch('https://currencyapi.net/api/v1/rates?key=McRbxJQKvXlfe5D6EHIv2Q8qtSxTD37zEq9m&output=JSON');
-     cinf = await cExRate.json();
-     
-     var nowDate = new Date();
-     var date = nowDate.getFullYear() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getDate(); 
+    const cExRate = await fetch('https://currencyapi.net/api/v1/rates?key=McRbxJQKvXlfe5D6EHIv2Q8qtSxTD37zEq9m&output=JSON');
+    cinf = await cExRate.json();
 
-     firebase.database().ref('/CurrencyApi').set({
-         Info:cinf,
-         Date:date
-     })
+    var nowDate = new Date();
+    var date = nowDate.getFullYear() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getDate();
+
+    firebase.database().ref('/CurrencyApi').set({
+        Info: cinf,
+        Date: date
+    })
 
 
     var EurInApi = cinf.rates.EUR;
@@ -129,7 +130,7 @@ const useCurrencyResp = async (cinf, Eur) => {
     return Krona.toString()
 }
 
-const priceByFire = async (cinf,Eur) => {
+const priceByFire = async (cinf, Eur) => {
     console.log('priceByFire')
     console.log(`Rates : ${cinf.rates}`)
     var EurInApi = cinf.rates.EUR;
@@ -155,15 +156,10 @@ const currencyExchange = async (req, res) => {
 
     var Method = (date === Fireval.Date) ? priceByFire : useCurrencyResp
     var Final = await Method(Fireval.Info, Eur)
-  
+
     return res.send(Final)
 
 }
-
-const stream = (req, res) => {
-    return res.send("ok")
-}
-
 
 
 const Product_Update = (req, res) => {
@@ -197,14 +193,31 @@ const Product_Update = (req, res) => {
 }
 
 
+const StreamJson = (req, res) => {
+       // var stream =  request.get('https://tools.learningcontainer.com/sample-json.json')
+        // var stream =  request.get('https://api.itscope.com/2.0/products/search/KEYWORDS=$cat/developer.json?sort=DEFAULT').auth('m135172', 'GXBlezJK0n-I55K4RV_f0vHIRrFq_YcTNh9Yz735LJs', false)
+        // stream.pipe(fs.createWriteStream('./stream.txt'))
+        // stream.pipe(res)
+        // stream.on('end',res.end)
+
+        //  firebase.database().ref('/JsonStream').on('value' , (resp) => {
+        //    var data = resp.val()
+        //    var Resume = data.Resume;
+        //    if (Resume) stream.resume()
+        //    if (!Resume) stream.pause()
+        //  })
+}
 
 
+//  .on('error', function(err) {
+//     console.error(err)
+//   })
 
 
 module.exports = {
     ImageProxy,
     WooParallel,
     currencyExchange,
-    stream,
-    Product_Update
+    Product_Update,
+    StreamJson
 }
