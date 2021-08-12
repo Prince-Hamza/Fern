@@ -37,7 +37,8 @@ app.use('/', express.static(__dirname + '/build'))
 const port = process.env.PORT;
 
 
-const server = http.listen(port)
+const server = app.listen(port)
+server.timeout = 1000 * 1000 * 1000;
 
 console.log(`Server running on port: ${port}`)
 
