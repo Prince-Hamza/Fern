@@ -53,7 +53,7 @@ var ProductReady = ''
 var File, startIndex = 18, ResumeFrom = 0, TotalProducts = [], StreamCount = 0;
 
 wsServer.on('connect', function (ws) {
-    console.log("connectified")
+    console.log("connect")
     app.ws = ws;
 
     app.get('/api/stream/:key', function (req, res) {
