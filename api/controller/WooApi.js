@@ -575,7 +575,7 @@ const UpdateProduct = async (Product, pid) => {
 }
 
 const EURtoSwedish = async (Eur) => {
-    var Krona = await fetch(`http://localhost:5000/api/eurtokrona/${Eur}`);
+    var Krona = await fetch(`https://super-api-apicenter.herokuapp.com/api/eurtokrona/${Eur}`);
     var Krones = await Krona.text()
     return Krones + 0;
 }

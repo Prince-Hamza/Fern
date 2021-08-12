@@ -20,7 +20,8 @@ var request = require('request')
 
 
 
-console.log("startify")
+
+console.log("startifyingify")
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
