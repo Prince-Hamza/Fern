@@ -21,7 +21,7 @@ var request = require('request')
 
 
 
-console.log("startifyingify")
+console.log("startu")
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
