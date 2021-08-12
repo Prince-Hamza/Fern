@@ -15,7 +15,8 @@ router.get('/signup/:id', FireController.SignUp)
 router.get('/signin/:id', FireController.SignIn)
 router.get('/eurtokrona/:amount', WooApi.currencyExchange)
 router.get('/productupdate', WooApi.Product_Update)
-router.get('/stream', WooApi.StreamJson)
+// router.get('/stream/:key', WooApi.StreamJson)
+router.post('/woo', WooApi.WooCreate)
 
 
 
