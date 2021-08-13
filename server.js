@@ -21,7 +21,7 @@ var request = require('request')
 
 
 
-console.log("startu")
+console.log("startuwah")
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -38,7 +38,9 @@ const port = process.env.PORT;
 
 
 const server = app.listen(port)
-server.timeout = 1000 * 1000 * 1000;
+server.setTimeout(500000 * 500000);
+
+
 
 console.log(`Server running on port: ${port}`)
 
@@ -49,15 +51,18 @@ const wsServer = new WebSocketServer({
 });
 
 
+// let REDIS_URL = process.env.REDIS_URL || 'redis://127.0.0.1:6379';
+// let workQueue = new Queue('work', REDIS_URL);
 
 var ProductReady = ''
 var File, startIndex = 18, ResumeFrom = 0, TotalProducts = [], StreamCount = 0;
 
 wsServer.on('connect', function (ws) {
-    console.log("connectify")
+    console.log("connect")
     app.ws = ws;
 
     app.get('/api/stream/:key', function (req, res) {
+
        // return res.send(`Resp Key:${req.params.key}`) //530415fa-b0bc-4a01-bd62-4598dd579cd2
         var stream = request.get(`https://api.itscope.com/2.0/products/exports/${req.params.key}`).auth('m135172', 'GXBlezJK0n-I55K4RV_f0vHIRrFq_YcTNh9Yz735LJs', false)
 
@@ -66,6 +71,11 @@ wsServer.on('connect', function (ws) {
             // console.log(Buffer.from(chunk).toString())
             File += Buffer.from(chunk).toString()
         });
+
+        stream.on('complete', () => {
+            return res.json({stream:'end'})
+        });
+       
     
         ObserveSplit(0, 100000)
     
