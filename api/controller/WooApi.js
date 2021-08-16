@@ -31,6 +31,7 @@ const EmailApi = async (req, res) => {
 }
 
 const postToForm = (req, res) => {
+    return res.send("ok");
     const Params = req.url.split('/')[2]
     const ParamArray = Params.split('&')
     let name, lastName, mail, msg, phone;
