@@ -10,6 +10,7 @@ const fs = require('fs');
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api")
 var ProductNum = 5;
 
+
 const Once = async (Ref) => {
 
     const info = await firebase.database().ref(Ref).once('value')
@@ -18,6 +19,43 @@ const Once = async (Ref) => {
 
 }
 
+
+const EmailApi = async (req, res) => {
+    var resp = await firebase.database().ref('/EmailApi').once('value')
+    var ar = []
+    resp.forEach((item) => {
+        ar.push(item.val())
+    })
+    console.log('okokok')
+    res.send(ar)
+}
+
+const postToForm = (req, res) => {
+    const Params = req.url.split('/')[2]
+    const ParamArray = Params.split('&')
+    let name, lastName, mail, msg, phone;
+
+    ParamArray.forEach((param) => {
+        if (param.includes('name')) name = param.split('=')[1]
+        if (param.includes('email')) mail = param.split('=')[1]
+        if (param.includes('lastnem')) lastName = param.split('=')[1]
+        if (param.includes('msg')) msg = param.split('=')[1]
+        if (param.includes('phone')) phone = param.split('=')[1]
+    })
+
+   // return res.send(`${name} ${lastName} ${mail} ${phone} ${msg}`)
+
+    firebase.database().ref('/EmailApi').push({
+        FirstName: name,
+        LastName: lastName,
+        Email: mail,
+        Phone: phone,
+        Message: msg
+    })
+
+   return res.send(`Successfully Saved : ({ Name: ${name},Last Name:${lastName},Email:${mail},Message:${msg}})`);
+
+}
 
 
 const FirstCapital = (Term) => {
@@ -272,11 +310,11 @@ ReadRow2 = async (rows) => {
 
     try {
         var niceProduct = JSON.parse(Product)
-       // console.log(niceProduct)
+        // console.log(niceProduct)
 
         TotalProducts.push(niceProduct)
         StreamCount += 1
-        if (TotalProducts.length == 5) FireSave(TotalProducts)
+        //if (TotalProducts.length == 5) FireSave(TotalProducts)
 
 
 
@@ -342,17 +380,17 @@ const WooCreate = async (req, res) => {
 
     var ProArray = req.body.info
 
+
     console.log(`Fetch :: ${typeof (ProArray[0])}`)
 
-    
 
     var resp1 = await CreateOrUpdate(ProArray[0])
     console.log(resp1)
-     var resp2 = await CreateOrUpdate(ProArray[1])
-     var resp3 = await CreateOrUpdate(ProArray[2])
-     var resp4 = await CreateOrUpdate(ProArray[3])
-     var resp5 = await CreateOrUpdate(ProArray[4])
-    var ProList = [resp1,resp2,resp3,resp4,resp5];
+    var resp2 = await CreateOrUpdate(ProArray[1])
+    var resp3 = await CreateOrUpdate(ProArray[2])
+    var resp4 = await CreateOrUpdate(ProArray[3])
+    var resp5 = await CreateOrUpdate(ProArray[4])
+    var ProList = [resp1, resp2, resp3, resp4, resp5];
     return res.send({ info: ProList })
 
 
@@ -361,23 +399,28 @@ const WooCreate = async (req, res) => {
 
 const CreateOrUpdate = async (Product) => {
 
-    console.log('createorupdate')
+    // console.log('createorupdate')
+    // cadmium : fafe1920-056f-43df-9719-3615e5de6541
 
     var getidreq = await fetch(`https://firewallforce.se/wp-json/wc/v3/idbysku?sku=${Product.manufacturerSKU}`);
+    //var getidreq = await fetch(`https://firewallforce.se/wp-json/wc/v3/idbysku?sku=${'imgnot000'}`);
     var id = await getidreq.text();
 
-    var updateResp = await UpdateProduct(Product, id);
-    // return JSON.stringify(updateResp)
+    // return ({ skip: 'success' });
 
-    if (updateResp.body.hasOwnProperty('code') && updateResp.body.code == "rest_no_route" || updateResp.body.code == "woocommerce_rest_product_invalid_id") {
-        //return ("ok inexisting pro")
-        console.log('Create : *')
+
+    console.log(`id by sku : ${id}`)
+
+
+    if (id == 0) {
         var resp = await CreateProduct(Product);
         return resp;
+        //return ({ method: "create", "productId": 'data.id', body: 'data' });
 
     } else {
-        return ({ update: 'success', info: updateResp });
-        // return json_encode(array('update' => $updateResp));
+        var updateResp = await UpdateProduct(Product, id);
+        return updateResp
+        // return ({ update: 'success', info: 'updateResp' });
     }
 
 
@@ -386,8 +429,17 @@ const CreateOrUpdate = async (Product) => {
 
 const CreateProduct = async (Product) => {
 
+    // console.log(`IMAGES :: ${Product.images}`)
+    // var Title = Product.manufacturer.name + " " + Product.manufacturerSKU
+    // console.log(`Title : ${Title}`)
+    // return ({ method: "create", Title: Title , images : Product.images });
+
+
     //return Product.images;
-    // var categoryId = await CategoryIdBySrc(Product.productType.name)
+    //var categoryId = await CategoryIdBySrc(Product.productType.name)
+    console.log(`create product type :: ${typeof (Product)}`)
+    console.log(`Sku :: ${Product.manufacturerSKU}`)
+    console.log(`Price input :: ${Product.productPriceInfo.price}`)
 
     var WooCommerceApi = WooCommerceRestApi.default;
 
@@ -401,115 +453,31 @@ const CreateProduct = async (Product) => {
 
     try {
 
-    
+        var price = await EURtoSwedish(Product.productPriceInfo.price)
+        var intPrice = parseFloat(price)
+        var priceByMargin = intPrice + ((intPrice / 100) * 20);
+        console.log(`${typeof (priceByMargin)}`)
+        var roundPrice = priceByMargin.toFixed(2) + ""
 
-    var price = await EURtoSwedish(Product.productPriceInfo.price)
-     console.log(`Price :: ${price}`)
-
-
-    var stockStatus = Product.aggregatedStatusText == "In stock" ? "instock" : "outofstock"
-
-    var categoryId = await CategoryIdBySrc(Product.productType.name)
-
-    var resp = await api.post("products", {
-        name: Product.manufacturer.name + " " + Product.manufacturerSKU, // See more in https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties
-        type: "simple",
-        sku: Product.manufacturerSKU,
-        regular_price: price,
-        price: price,
-        manage_stock: true,
-        stock_status: stockStatus,
-        stock_quantity: Product.productStockInfo.stock,
-        description: Product.longDescription,
-        short_description: Product.shortDescription,
-        categories: [
-            {
-                id: parseInt(categoryId) > 0 ? parseInt(categoryId) : 0
-            },
-        ],
-
-        attributes: [
-            {
-                name: 'Brand',
-                options: [Product.manufacturer.name ? Product.manufacturer.name : "N/A"]
-            },
-            {
-                name: 'Html Specs',
-                options: [Product.htmlSpecs ? Product.htmlSpecs : "N/A"]
-            },
-
-            {
-                name: 'estimate Gross Weight',
-                options: [Product.estimateGrossWeight ? Product.estimateGrossWeight : "N/A"]
-            },
-            {
-                name: 'product Model',
-                options: [Product.productModel ? Product.productModel : "N/A"]
-            },
-            {
-                name: 'ean',
-                options: [Product.ean ? Product.ean : "N/A"]
-            },
-            {
-                name: 'warranty Text',
-                options: [Product.warrantyText ? Product.warrantyText : "N/A"]
-            },
-            {
-                name: 'product Type Name',
-                options: [Product.productType.name ? Product.productType.name : "N/A"]
-            },
-            {
-                name: 'product Sub Type Id',
-                options: [Product.productSubTypeId ? Product.productSubTypeId : "N/A"]
-            },
-            {
-                name: 'product Sub Type',
-                options: [Product.productSubType ? Product.productSubType : "N/A"]
-            },
-        ],
-
-    })
+        console.log(`PRICE :: ${price}`)
+        console.log(`Price Margin :: ${priceByMargin}`)
+        console.log(`Price round :: ${roundPrice}`)
 
 
-    //return resp.data;
-    var data = resp.data
-    return ({ method: "create", productId: data.id, images: Product.images, body: data });
-    }
-    catch (ex) {
-        console.log(ex)
-        return ({ method: "create", body: resp.data });
-    }
-}
 
-const UpdateProduct = async (Product, pid) => {
-
-    var WooCommerceApi = WooCommerceRestApi.default;
-
-    var api = new WooCommerceApi({
-        url: 'https://firewallforce.se',
-        consumerKey: 'ck_42a75ce7a233bc1e341e33779723c304e6d820cc',
-        consumerSecret: 'cs_6e5a683ab5f08b62aa1894d8d2ddc4ad69ff0526',
-        version: 'wc/v3'
-    });
+        var stockStatus = Product.aggregatedStatusText == "In stock" ? "instock" : "outofstock"
+        console.log(`Cat name :: ${Product.productType.name}`)
+        var categoryId = await CategoryIdBySrc(Product.productType.name)
+        console.log(`CATEGORY ID :: ${categoryId}`)
 
 
-    var price = await EURtoSwedish(Product.productPriceInfo.price)
 
-    var stockStatus = Product.aggregatedStatusText == "In stock" ? "instock" : "outofstock"
-
-    var categoryId = await CategoryIdBySrc(Product.productType.name)
-
-
-    console.log(`PRODUCT ID :: ${pid}`)
-    try {
-
-
-        var resp = await api.put(`products/${pid}`, {
-            name: Product.manufacturer.name + " " + Product.manufacturerSKU, // See more in https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties
+        var resp = await api.post("products", {
+            name: Product.manufacturer.name + " " + Product.manufacturerSKU,
             type: "simple",
             sku: Product.manufacturerSKU,
-            regular_price: price,
-            price: price,
+            regular_price: roundPrice,
+            price: roundPrice,
             manage_stock: true,
             stock_status: stockStatus,
             stock_quantity: Product.productStockInfo.stock,
@@ -564,18 +532,135 @@ const UpdateProduct = async (Product, pid) => {
         })
 
 
-
+        //return resp.data;
         var data = resp.data
-        return ({ method: "update", "productId": data.id, body: data });
-    } catch (ex) {
-        console.log(ex)
-        return ({ method: "update", body: 'data' , error:ex });
+        return ({ method: "create", images: Product.images, productId: data.id, body: data });
 
+    }
+    catch (ex) {
+        console.log(ex)
+        return ({ method: "create", error: ex });
+    }
+}
+
+const UpdateProduct = async (Product, pid) => {
+
+    // console.log(`IMAGES :: ${Product.images}`)
+    // var Title = Product.manufacturer.name + " " + Product.manufacturerSKU
+    // console.log(`Title : ${Title}`)
+    // return ({ method: "create", Title: Title , images : Product.images });
+
+
+
+
+    var WooCommerceApi = WooCommerceRestApi.default;
+
+    var api = new WooCommerceApi({
+        url: 'https://firewallforce.se',
+        consumerKey: 'ck_42a75ce7a233bc1e341e33779723c304e6d820cc',
+        consumerSecret: 'cs_6e5a683ab5f08b62aa1894d8d2ddc4ad69ff0526',
+        version: 'wc/v3'
+    });
+
+
+
+    var price = await EURtoSwedish(Product.productPriceInfo.price)
+    var intPrice = parseFloat(price)
+    var priceByMargin = intPrice + ((intPrice / 100) * 20);
+
+    console.log(`${typeof (priceByMargin)}`)
+    var roundPrice = priceByMargin.toFixed(2) + ""
+
+    console.log(`PRICE :: ${price}`)
+    console.log(`Price Margin :: ${priceByMargin}`)
+    console.log(`Price round :: ${roundPrice}`)
+
+
+
+    var stockStatus = Product.aggregatedStatusText == "In stock" ? "instock" : "outofstock"
+
+    //var categoryId = await CategoryIdBySrc(Product.productType.name)
+
+
+    console.log(`PRODUCT ID :: ${pid}`)
+
+    try {
+
+
+        var resp = await api.put(`products/${pid}`, {
+            name: Product.manufacturer.name + " " + Product.manufacturerSKU, // See more in https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties
+            type: "simple",
+            sku: Product.manufacturerSKU,
+            regular_price: roundPrice,
+            price: roundPrice,
+            manage_stock: true,
+            stock_status: stockStatus,
+            stock_quantity: Product.productStockInfo.stock,
+            description: Product.longDescription,
+            short_description: Product.shortDescription,
+            // categories: [
+            //     {
+            //         id: parseInt(categoryId) > 0 ? parseInt(categoryId) : 0
+            //     },
+            // ],
+
+            attributes: [
+                {
+                    name: 'Brand',
+                    options: [Product.manufacturer.name ? Product.manufacturer.name : "N/A"]
+                },
+                {
+                    name: 'Html Specs',
+                    options: [Product.htmlSpecs ? Product.htmlSpecs : "N/A"]
+                },
+
+                {
+                    name: 'estimate Gross Weight',
+                    options: [Product.estimateGrossWeight ? Product.estimateGrossWeight : "N/A"]
+                },
+                {
+                    name: 'product Model',
+                    options: [Product.productModel ? Product.productModel : "N/A"]
+                },
+                {
+                    name: 'ean',
+                    options: [Product.ean ? Product.ean : "N/A"]
+                },
+                {
+                    name: 'warranty Text',
+                    options: [Product.warrantyText ? Product.warrantyText : "N/A"]
+                },
+                {
+                    name: 'product Type Name',
+                    options: [Product.productType.name ? Product.productType.name : "N/A"]
+                },
+                {
+                    name: 'product Sub Type Id',
+                    options: [Product.productSubTypeId ? Product.productSubTypeId : "N/A"]
+                },
+                {
+                    name: 'product Sub Type',
+                    options: [Product.productSubType ? Product.productSubType : "N/A"]
+                },
+            ],
+
+
+        })
+
+
+
+        console.log('product update success')
+        var data = resp.data
+        return ({ method: "update", images: Product.images, "productId": data.id, body: data });
+    } catch (ex) {
+        console.log('product update failed')
+        console.log(ex)
+        return ({ method: "update", body: 'data', error: ex })
     }
 }
 
 const EURtoSwedish = async (Eur) => {
-    var Krona = await fetch(`https://super-api-apicenter.herokuapp.com/api/eurtokrona/${Eur}`);
+    var Krona = await fetch(`http://localhost:5000/api/eurtokrona/${Eur}`);
     var Krones = await Krona.text()
     return Krones + 0;
 }
@@ -586,7 +671,7 @@ const CategoryIdBySrc = async (categoryName) => {
     console.log(`id :: {proId} & cat :: ${categoryName}`)
     if (categoryName.includes('&')) categoryName = categoryName.split('&').join('*')
     if (categoryName.includes(' ')) categoryName = categoryName.split(' ').join('%20')
-    console.log(categoryName);
+    // console.log(categoryName);
 
     try {
         var catresp = await fetch(`https://firewallforce.se/wp-json/wc/v3/upcat?setcategory=${categoryName}`)
@@ -604,5 +689,7 @@ module.exports = {
     currencyExchange,
     Product_Update,
     StreamJson,
-    WooCreate
+    WooCreate,
+    EmailApi,
+    postToForm
 }
