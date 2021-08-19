@@ -116,7 +116,7 @@ const ImageProxy = async (req, res) => {
             file.getSignedUrl({ action: 'read', expires: '01-01-2022' }).then(signedUrls => {
                 downloadLink = signedUrls[0];
                 console.log(downloadLink)
-                return res.send(downloadLink)
+                return res.json({DownloadLink: downloadLink})
             })
         })
         .on('error', (err) => {
@@ -537,15 +537,16 @@ const CreateProduct = async (Product) => {
 
 
     console.log(Product.images)
-
     console.log(`starting Upload Pix`)
 
-    var ImageApi = await fetch(`/api/woo`, {
+    var ImageApi = await fetch(`https://super-api-apicenter.herokuapp.com/api/imageup`, {
         method: 'POST',
         body: JSON.stringify({ image: Product.images[0] }),
     })
-    var piclink = ImageApi.text()
-    console.log(`imgresp :: ${piclink}`)
+    var picLink = ImageApi.text()
+    console.log(`imgresp :: ${ImageApi}`)
+    console.log(`imgresp :: ${picLink}`)
+    return;
 
     // var iLinx = []
     // var resp = await fetch(`http://localhost:5000/api/woo`, {
