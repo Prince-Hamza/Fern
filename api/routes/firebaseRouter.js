@@ -12,12 +12,11 @@ const router = express.Router()
 //router.get('/emailinfo', WooApi.emailInfo)
 
 router.post('/imageup', WooApi.ImageProxy)
-router.post('/updateimages', WooApi.updateImages)
+// router.post('/updateimages', WooApi.updateImages)
 
 router.get('/signup/:id', FireController.SignUp)
 router.get('/signin/:id', FireController.SignIn)
 router.get('/eurtokrona/:amount', WooApi.currencyExchange)
-router.get('/productupdate', WooApi.Product_Update)
 router.get('/postform/:id' , WooApi.postToForm)
 router.get('/getform' , WooApi.EmailApi)
 // router.get('/stream/:key', WooApi.StreamJson)

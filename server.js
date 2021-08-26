@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 var http = require('http').Server(app);
@@ -10,7 +11,6 @@ const firebase = require('firebase')
 const firebaseConfig = require('./api/config')
 const WebSocketServer = require('websocket').server;
 //const WooApi = require('../controller/WooApi')
-require('dotenv').config()
 var request = require('request')
 // io.on('connection', function (socket) {
 //     console.log('A new WebSocket connection has been established');
@@ -73,10 +73,9 @@ wsServer.on('connect', function (ws) {
             File += Buffer.from(chunk).toString()
         });
 
-        stream.on('complete', () => {
-            return res.json({ stream: 'end' })
-            //console.log('stream end')
-        });
+        // stream.on('complete', () => {
+        //     return res.json({ stream: 'end' })
+        // });
 
 
         ObserveSplit(0, 100000)
@@ -86,6 +85,7 @@ wsServer.on('connect', function (ws) {
         setInterval(() => {
             if (ProductReady !== '') {
                 //let SendProduct = ProductReady
+                console.log(`PARSED AND SENT A NEW PRODUCT`)
                 ws.send(JSON.stringify(ProductReady))
                 ProductReady = ''
             }
@@ -111,7 +111,7 @@ wsServer.on('request', function (request) {
 
 
 const ObserveSplit = (start, end, ws) => {
-     
+
     var listen = setInterval(() => {
         // console.log('observeSplitInterval')
         // console.log(`File:Length:: ${File.length}`)
@@ -173,7 +173,7 @@ ReadRow2 = async (rows) => {
 
     try {
         var niceProduct = JSON.parse(Product)
-        // console.log(niceProduct)
+        // console.log(`Nice :: ${ JSON.stringify(niceProduct)}`)
         ProductReady = niceProduct
         //TotalProducts.push(niceProduct)
         //StreamCount += 1
