@@ -85,7 +85,7 @@ wsServer.on('connect', function (ws) {
         setInterval(() => {
             if (ProductReady !== '') {
                 //let SendProduct = ProductReady
-                console.log(`PARSED AND SENT A NEW PRODUCT`)
+                //console.log(`PARSED AND SENT A NEW PRODUCT`)
                 ws.send(JSON.stringify(ProductReady))
                 ProductReady = ''
             }

@@ -4,7 +4,7 @@ const serviceAccount = require('./servicekey.json');
 const axios = require('axios')
 const fetch = require('node-fetch');
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api")
-
+const fs = require('fs')
 
 const Once = async (Ref) => {
 
@@ -187,184 +187,6 @@ const currencyExchange = async (req, res) => {
 }
 
 
-// const Product_Update = (req, res) => {
-
-//     //  var Title = Pro.manufacturer.name + " " + Pro.manufacturerSKU;
-//     // var Images = this.ParseImages(Pro)
-//     var App = this, Price = 0.00;
-//     //if (Pro.hasOwnProperty('productPriceInfo') == true) Price = Pro.productPriceInfo.price
-
-
-
-
-//     fetch(`https://firewallforce.se/wp-json/wc/v3/update64?name=${'Title'}&puid=${'puid'}&sku=${'iMerror'}&price=${'Price'}&catname=${'Pro.productType.name'}&brand=${'Pro.manufacturer.name'}&shortdesc=${'Pro.shortDescription'}&longdesc=${'Pro.longDescription'}&stock=${'3'}&stockstatus=${'Pro.aggregatedStatusText'}&attrib1=${'Pro.productType.attributeTypeName1'}&attrib2=${'Pro.productType.attributeTypeName2'}&attrib3=${'Pro.productType.attributeTypeName3'}&attrib4=${'Pro.productType.attributeTypeName4'}&attrib5=${'Pro.productType.attributeTypeName5'}&attrib1v=${'Pro.attributeValue1'}&attrib2v=${'Pro.attributeValue2'}&attrib3v=${'Pro.attributeValue3'}&attrib4v=${'Pro.attributeValue4'}&attrib5v=${'Pro.attributeValue5'}&images=${[]}`, {
-//         method: 'GET',
-//         // body:{info:Product},
-//         headers: {
-//             'Authorization': 'Basic' + Buffer.from('ck_42a75ce7a233bc1e341e33779723c304e6d820cc:cs_6e5a683ab5f08b62aa1894d8d2ddc4ad69ff0526', 'binary').toString('base64')
-//         }
-//     }).then((resp) => {
-//         resp.json().then((respJson) => {
-//             console.log('success')
-//             return res.send(respJson)
-//         })
-//     }).catch((e) => {
-//         console.log(e)
-//         return res.send('@safe!')
-//     })
-
-
-
-// }
-
-// var File, startIndex = 18, ResumeFrom = 0, TotalProducts = [], StreamCount = 0;
-// const StreamJson = (req, res) => {
-//     //  console.log(req.params.key)
-//     // var stream =  request.get('https://tools.learningcontainer.com/sample-json.json')
-//     //var stream = request.get('https://api.itscope.com/2.0/products/search/KEYWORDS=$cat/developer.json?sort=DEFAULT').auth('m135172', 'GXBlezJK0n-I55K4RV_f0vHIRrFq_YcTNh9Yz735LJs', false)
-//     var stream = request.get('https://api.itscope.com/2.0/products/exports/530415fa-b0bc-4a01-bd62-4598dd579cd2').auth('m135172', 'GXBlezJK0n-I55K4RV_f0vHIRrFq_YcTNh9Yz735LJs', false)
-
-//     var File = "", count = 1;
-//     stream.on('data', (chunk) => {
-//         // console.log(Buffer.from(chunk).toString())
-//         File += Buffer.from(chunk).toString()
-//     });
-
-
-
-//     ObserveSplit(0, 100000)
-
-// }
-
-
-// const ObserveSplit = (start, end) => {
-
-//     var listen = setInterval(() => {
-//         if (File.length >= end) {
-//             splitStream(start, end)
-//             clearInterval(listen)
-//         }
-//     }, 1000)
-
-// }
-
-// const splitStream = async (start, end) => {
-
-//     console.log(`start ${start}`)
-//     console.log(`end ${start + 100000}`)
-
-//     console.log(`File Length :: ${File.length}`)
-
-
-//     var ByteText = File.substring(start, start + 100000);
-//     console.log("Length :: " + ByteText.length)
-//     //var ByteText = await Bytes.text();
-
-//     var i2 = getIndex(ByteText, "puid", 2)
-//     //console.log(i2)
-
-//     //console.log(`Resume From :: ${start + i2 - 100}`)
-//     // this.setState({ ResumeFrom: start + i2 - 100 })
-//     ResumeFrom = start + i2 - 100
-//     console.log('res from 1:' + ResumeFrom)
-//     var LinesArray = ByteText.split('\n')
-//     ReadRow2(LinesArray)
-
-
-
-// }
-
-// const ReadRow2 = async (rows) => {
-
-//     var Product = '', Pause = -1, Stream = false, Count = 0;
-//     for (let c = 0; c <= rows.length - 1; c++) {
-//         if (rows[c].includes('puid')) Stream = true
-//         if (Stream) {
-//             if (rows[c].includes('puid')) Count += 1
-//             if (Count == 1) {
-//                 let Row = rows[c].includes('puid') ? '{' + rows[c] : rows[c]
-//                 Product += Row;
-//                 //  console.log(Row)
-//             }
-//             if (Count == 2) {
-//                 Stream = false;
-//                 Product = Product.substring(0, Product.length - 3)
-//                 //  console.log(Product)
-
-//             }
-//         }
-
-//     }
-
-
-//     try {
-//         var niceProduct = JSON.parse(Product)
-//         // console.log(niceProduct)
-
-//         TotalProducts.push(niceProduct)
-//         StreamCount += 1
-//         //if (TotalProducts.length == 5) FireSave(TotalProducts)
-
-
-
-//         Resumify(File)
-
-//     } catch (ex) {
-//         //  console.log(`Catch :: ${ex}`)
-//         // Resumify(File)
-//     }
-
-//     //    console.log(this.state.ResumeFrom)
-//     // if (!this.state.Pause) this.Resumify(File)
-
-// }
-
-// Resumify = () => {
-//     //console.log(File.substring(ResumeFrom + 100,ResumeFrom + 300))
-//     console.log(`rs in splitstream ${ResumeFrom}`)
-//     //splitStream(ResumeFrom, ResumeFrom + 100000)
-//     ObserveSplit(ResumeFrom, ResumeFrom + 100000)
-
-// }
-
-
-
-// var ProArray = []
-// const Extract_Product = (Data) => {
-//     var ByteText = Data.substring(startIndex, 100000);
-//     var puid2 = getIndex(ByteText, "puid", 2)
-//     var Product = Data.substring(startIndex, puid2 + 9)
-//     startIndex = puid2 - 8;
-//     var Pro = JSON.parse(Product)
-//     return Pro;
-
-// }
-
-// const getIndex = (string, subString, index) => {
-//     return string.split(subString, index).join(subString).length;
-// }
-
-// FireSave = (Products) => {
-//     StreamCount = 0
-//     TotalProducts = 0
-//     firebase.database().ref(`/JsonStreaming/Stream${StreamCount}`).push(Products[0])
-//     firebase.database().ref(`/JsonStreaming/Stream${StreamCount}`).push(Products[1])
-//     firebase.database().ref(`/JsonStreaming/Stream${StreamCount}`).push(Products[2])
-//     firebase.database().ref(`/JsonStreaming/Stream${StreamCount}`).push(Products[3])
-//     firebase.database().ref(`/JsonStreaming/Stream${StreamCount}`).push(Products[4])
-// }
-
-
-
-// stream.pipe(fs.createWriteStream('./stream.txt'))
-// stream.pipe(res)
-
-// const Reset = (stream) => {
-//     stream.pause()
-//     fs.writeFile('/path/to/file', '')
-//     console.log('Stream Paused')
-// }
-
 const upload_image_to_wordpress = () => {
     console.log('sending image')
 
@@ -389,7 +211,7 @@ const upload_image_to_wordpress = () => {
 
 
 
-var ProRefresh = 0, ProList = []
+var ProRefresh = 0, ProList = [], catOnce = true, categoryMemory = [];
 
 const WooCreate = async (req, res) => {
 
@@ -447,10 +269,10 @@ const idBySku = async (SKU) => {
 const CreateOrUpdate = async (Product, imgArrNum) => {
 
 
-    console.log('createorupdate')
-
     var id = await idBySku(Product.manufacturerSKU)
     //var id = await idBySku('khoti')
+
+
 
 
     console.log(`id by sku : ${id}`)
@@ -459,19 +281,18 @@ const CreateOrUpdate = async (Product, imgArrNum) => {
     if (id == 0) {
 
         console.log(`GOING TO UPLOAD IMAGES`)
-        // var resp = uploadImages(Product)
+        var resp = uploadImages(Product, 'create')
         // var resp = CreateProduct(Product)
-        console.log(resp)
-
         return resp;
         //return ({ method: "create", "productId": 'data.id', body: 'data' });
 
     } else {
 
         console.log(`GOING TO UPDATE PRODUCT`)
+        var resp = uploadImages(Product, 'update' , id)
 
-        var updateResp = UpdateProduct(Product, id);
-        return updateResp
+        //var updateResp = UpdateProduct(Product, id);
+        //return updateResp
 
         //  return ({ update: 'success', info: 'updateResp' });
     }
@@ -480,7 +301,7 @@ const CreateOrUpdate = async (Product, imgArrNum) => {
 }
 
 
-const uploadImages = async (Product) => {
+const uploadImages = async (Product, method , id) => {
 
     console.log(`Lets Upload Images First`)
 
@@ -724,7 +545,9 @@ const uploadImages = async (Product) => {
             Product.images = NewImages
             Product.FilePaths = filePathx
             console.log(`IMAGES :: ${Product.images}`)
-            CreateProduct(Product)
+            //CreateProduct(Product)
+            if (method == 'create') CreateProduct(Product)
+            if (method == 'update') UpdateProduct(Product , id)
         }
     }, 1000)
 
@@ -751,12 +574,10 @@ const CreateProduct = async (Product) => {
 
 
 
-
     var inputPrice = Product.hasOwnProperty('productPriceInfo') ? Product.productPriceInfo.price : 0
     var price = await EURtoSwedish(inputPrice)
     var intPrice = parseFloat(price)
     var priceByMargin = intPrice + ((intPrice / 100) * 20);
-    console.log(`${typeof (priceByMargin)}`)
     var roundPrice = priceByMargin.toFixed(2) + ""
 
 
@@ -764,7 +585,7 @@ const CreateProduct = async (Product) => {
     var stockStatus = Status === "In stock" ? "instock" : "outofstock"
 
     console.log(`Cat name :: ${Product.productType.name}`)
-    var categoryId = await CategoryIdBySrc(Product.productSubType, api)
+    var categoryId = await CategoryIdByName(Product.productSubType)
     console.log(`CATEGORY ID :: ${categoryId}`)
 
 
@@ -866,8 +687,13 @@ const UpdateProduct = async (Product, pid) => {
         version: 'wc/v3'
     });
 
-
     console.log(`PRODUCT_UPDATE`)
+
+
+    console.log(`Cat name :: ${Product.productType.name}`)
+    var categoryId = await CategoryIdByName(Product.productSubType, api)
+    console.log(`CATEGORY ID :: ${categoryId}`)
+
 
     var inputPrice = Product.hasOwnProperty('productPriceInfo') ? Product.productPriceInfo.price : 0
     var price = await EURtoSwedish(inputPrice)
@@ -875,12 +701,16 @@ const UpdateProduct = async (Product, pid) => {
     var priceByMargin = intPrice + ((intPrice / 100) * 20);
     var roundPrice = priceByMargin.toFixed(2) + ""
 
-    
+
     var Status = Product.hasOwnProperty('aggregatedStatusText') ? Product.aggregatedStatusText : ""
     var stockStatus = Status === "In stock" ? "instock" : "outofstock"
 
+    var proImages = []
+    Product.images.forEach((image) => {
+        proImages.push({ src: image })
+    })
 
-    console.log(`CREATE_PRODUCT : SKU :: ${Product.manufacturerSKU}  PRICE:${roundPrice}  STOCK:${stockStatus}   CATEGORY:${categoryId}   IMAGES:${proImages.length} `)
+    console.log(`UPDATE_PRODUCT : SKU :: ${Product.manufacturerSKU}  PRICE:${roundPrice}  STOCK:${stockStatus}   CATEGORY:${categoryId}   IMAGES:${proImages.length} `)
 
 
     api.put(`products/${pid}`, {
@@ -894,11 +724,11 @@ const UpdateProduct = async (Product, pid) => {
         stock_quantity: Product.productStockInfo.stock,
         description: Product.longDescription,
         short_description: Product.shortDescription,
-        // categories: [
-        //     {
-        //         id: parseInt(categoryId) > 0 ? parseInt(categoryId) : 0
-        //     },
-        // ],
+        categories: [
+            {
+                id: parseInt(categoryId) > 0 ? parseInt(categoryId) : 0
+            },
+        ],
 
         attributes: [
             {
@@ -957,65 +787,10 @@ const UpdateProduct = async (Product, pid) => {
     })
 
 
-
-    // console.log('product update success')
-    // var data = resp.data
-    // return ({ method: "update", images: Product.images, "productId": data.id, body: data });
-    // } catch (ex) {
-    // console.log('product update failed')
-    // console.log(ex)
-    // return ({ method: "update", body: 'data', error: ex })
-    //}
 }
 
 
-// const updateImages = () => {
-//     var WooCommerceApi = WooCommerceRestApi.default;
 
-//     var api = new WooCommerceApi({
-//         url: 'https://firewallforce.se',
-//         consumerKey: 'ck_42a75ce7a233bc1e341e33779723c304e6d820cc',
-//         consumerSecret: 'cs_6e5a683ab5f08b62aa1894d8d2ddc4ad69ff0526',
-//         version: 'wc/v3'
-//     });
-
-//     console.log(`IMAGES PRODUCT ID :: ${pid}`)
-
-//     //try {
-
-
-//     api.put(`products/${pid}`, {
-
-//         images: [
-//             {
-//                 src: ImagesArray[0],
-//             },
-//             {
-//                 src: ImagesArray[1],
-//             },
-//             {
-//                 src: ImagesArray[2],
-//             }
-//         ],
-
-
-//     }).then((resp) => {
-//         console.log('product update success')
-//         var data = resp.data
-
-//         //      ProRefresh += 1
-//         //        ProList.push({ method: "update", images: Product.images, "productId": data.id, body: data });
-//     }).catch((ex) => {
-//         console.log('product update failed')
-//         console.log(ex)
-
-//         ProRefresh += 1
-//         ProList.push({ method: "update", body: 'data', error: ex })
-//     })
-
-
-
-// }
 
 const EURtoSwedish = async (Eur) => {
     var Krona = await fetch(`http://localhost:5000/api/eurtokrona/${Eur}`);
@@ -1024,72 +799,62 @@ const EURtoSwedish = async (Eur) => {
 }
 
 
-const CategoryIdBySrc = async (categoryName, api) => {
+const CategoryIdByName = async (categoryName) => {
 
-
-    console.log(`in cat id by src :: ${categoryName}`)
-    if (categoryName === 'Software Service & Support') categoryName = 'Software Service Support'
-    if (categoryName.includes('&')) {
-        console.log(`INCLUDES :: ${categoryName}`)
-        categoryName = categoryName.split('&').join('&amp;')
-    }
-
-
-
-
-
-    console.log(`finalcat :: ${categoryName}`)
-
-    var categoryId;
-
-    var resp = await api.get("products/categories", { 'per_page': '100', 'page': '1' })
-    var resp2 = await api.get("products/categories", { 'per_page': '100', 'page': '2' })
-    var resp2 = await api.get("products/categories", { 'per_page': '100', 'page': '3' })
-
-    var categories = resp.data
-    var categories2 = resp2.data
-    var categories3 = resp3.data
-
-
-    console.log(`Type :: ${typeof (categories)}`)
-
+    categoryName = modifyCatName(categoryName)
+    var categoryId
+    var categories = JSON.parse(fs.readFileSync(`${__dirname}/categories.json`, 'utf-8'))
     categories.forEach((category) => {
-        if (category.name === categoryName) {
-            categoryId = category.id
-            console.log(`found :: ${categoryId}`)
-        }
+        if (category.name == categoryName) categoryId = category.id
     })
-
-    categories2.forEach((category) => {
-        if (category.name === categoryName) {
-            categoryId = category.id
-            console.log(`found :: ${categoryId}`)
-        }
-    })
-
-    categories3.forEach((category) => {
-        if (category.name === categoryName) {
-            categoryId = category.id
-            console.log(`found :: ${categoryId}`)
-        }
-    })
-
-    console.log()
-    console.log(`CATEGORY NAME : ${categoryName} &&  CATEGORYID : ${categoryId}`)
-    console.log()
 
     if (categoryId) return categoryId
-    if (!categoryId) {
-        var respCat = await createCategory(categoryName, api)
-        CategoryIdBySrc(categoryName, api)
-    }
+    if (!categoryId) return 0
 
 }
 
-const createCategory = async (catName, WooCommerce) => {
-    var resp = await WooCommerce.post("products/categories", { name: catName })
-    console.log(`CREATED CATEGORY :: ${resp.data}`)
-    return resp.data
+
+
+
+
+const modifyCatName = (categoryName) => {
+    if (categoryName === 'Software Service & Support') categoryName = 'Software Service Support'
+    if (categoryName.includes('&')) {
+        categoryName = categoryName.split('&').join('&amp;')
+    }
+    return categoryName
+}
+
+const createCategory = async (catName) => {
+
+    var WooCommerceApi = WooCommerceRestApi.default;
+
+    var api = new WooCommerceApi({
+        url: 'https://firewallforce.se',
+        consumerKey: 'ck_42a75ce7a233bc1e341e33779723c304e6d820cc',
+        consumerSecret: 'cs_6e5a683ab5f08b62aa1894d8d2ddc4ad69ff0526',
+        version: 'wc/v3'
+    });
+
+    try {
+        var resp = await api.post("products/categories", { name: catName })
+        console.log(`CREATED CATEGORY :: ${resp.data}`)
+
+        var categories = JSON.parse(fs.readFileSync(`${__dirname}/categories.json`, 'utf-8'))
+        categories.push({ name: resp.data.name, id: resp.data.id })
+        fs.writeFile(`${__dirname}/categories.json`, JSON.stringify(categories), () => {
+            console.log(`categories updated`)
+        })
+
+        return resp.data.id
+
+    } catch (ex) {
+        console.log(`category error`)
+        return undefined
+    }
+
+
+
 }
 
 
