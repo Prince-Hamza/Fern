@@ -704,6 +704,7 @@ const UpdateProduct = async (Product, pid) => {
 
     var Status = Product.hasOwnProperty('aggregatedStatusText') ? Product.aggregatedStatusText : ""
     var stockStatus = Status === "In stock" ? "instock" : "outofstock"
+    var stockQuantity = Product.hasOwnProperty('productStockInfo') ? Product.productStockInfo.stock : 0
 
     var proImages = []
     Product.images.forEach((image) => {
@@ -721,7 +722,7 @@ const UpdateProduct = async (Product, pid) => {
         price: roundPrice,
         manage_stock: true,
         stock_status: stockStatus,
-        stock_quantity: Product.productStockInfo.stock,
+        stock_quantity: stockQuantity ,
         description: Product.longDescription,
         short_description: Product.shortDescription,
         categories: [
