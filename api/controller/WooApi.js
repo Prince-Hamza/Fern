@@ -1,17 +1,24 @@
-const firebase = require('firebase')
+const firebase = require('firebase/app').default
+const config = require('../config')
+require("firebase/database");
+require("firebase/storage");
 const admin = require('firebase-admin');
 const serviceAccount = require('./servicekey.json');
-const axios = require('axios')
+const axios = require('axios').default
 const fetch = require('node-fetch');
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api")
 const fs = require('fs')
+const request = require('request')
+const url = require('url')
+const https = require('https')
+var sizeOf = require('buffer-image-size');
+const imageToBase64 = require('image-to-base64');
+
 
 const Once = async (Ref) => {
-
     const info = await firebase.database().ref(Ref).once('value')
     console.log(info)
     return info
-
 }
 
 
@@ -79,7 +86,6 @@ const ImageProxy = async (Img) => {
 
 
     //  const Img = 'https://media.itscope.com/img/p/2Rtfp0SobLwvFrWehpjLZwrU7VdxDvXyQlpP1oq3v74=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeS84NjM2Nzg5Nl8xNTAwNjQwMTA0LmpwZw==?'
-
 
 
     var num = getRandom(5, 10000);
@@ -210,26 +216,29 @@ const upload_image_to_wordpress = () => {
 }
 
 
-
-var ProRefresh = 0, ProList = [], catOnce = true, categoryMemory = [];
+// CBL-0484L
+var ProRefresh = 0, ProList = [], catOnce = true, newcategories = [];
 
 const WooCreate = async (req, res) => {
 
 
+    uploadImages2()
+    return;
 
     var ProArray = req.body.info
     console.log(`Fetch :: ${typeof (ProArray[0])}`)
 
-
     ProRefresh = 0;
     ProList = []
 
-    CreateOrUpdate(ProArray[0], 1)
-    CreateOrUpdate(ProArray[1], 2)
-    CreateOrUpdate(ProArray[2], 3)
-    CreateOrUpdate(ProArray[3], 4)
-    CreateOrUpdate(ProArray[4], 5)
+    CreateOrUpdate(ProArray[0])
+    CreateOrUpdate(ProArray[1])
+    CreateOrUpdate(ProArray[2])
+    CreateOrUpdate(ProArray[3])
+    CreateOrUpdate(ProArray[4])
+
     //var ProList = [resp1, resp2, resp3, resp4, resp5];
+
 
 
     var countPro = setInterval(() => {
@@ -266,57 +275,92 @@ const idBySku = async (SKU) => {
 
 }
 
-const CreateOrUpdate = async (Product, imgArrNum) => {
-
+const CreateOrUpdate = async (Product) => {
 
     var id = await idBySku(Product.manufacturerSKU)
-    //var id = await idBySku('khoti')
-
-
-
-
-    console.log(`id by sku : ${id}`)
-
+    // var id = await idBySku('ZP500GM3A021')
+    console.log(`id by sku :: ${id}`)
+    console.log(`Pro img length :: ${Product.images.length}`)
 
     if (id == 0) {
-
         console.log(`GOING TO UPLOAD IMAGES`)
         var resp = uploadImages(Product, 'create')
-        // var resp = CreateProduct(Product)
         return resp;
-        //return ({ method: "create", "productId": 'data.id', body: 'data' });
 
     } else {
-
         console.log(`GOING TO UPDATE PRODUCT`)
-        var resp = uploadImages(Product, 'update' , id)
+        var updateResp = UpdateProduct(Product, id);
+        // var updateResp = uploadImages(Product, 'update', id);
 
-        //var updateResp = UpdateProduct(Product, id);
-        //return updateResp
-
-        //  return ({ update: 'success', info: 'updateResp' });
+        return updateResp
     }
-
 
 }
 
 
-const uploadImages = async (Product, method , id) => {
+const uploadImages = async (Product, method, id) => {
+
+    fireConnect()
 
     console.log(`Lets Upload Images First`)
 
-    var NewImages = []
-    var filePathx = []
-
-    try {
-        admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount),
-            databaseURL: "https://kidland-5754b-default-rtdb.firebaseio.com",
-            storageBucket: "kidland-5754b.appspot.com",
-        });
-    } catch (ex) {
-        //console.log(ex)
+    if (!Product.images.length || Product.images.length == 0) {
+        skipVoidImages('no images')
+        return
     }
+
+    var NewImages = [], NewImagesLength = 0, filePathx = [], extra
+
+    if (Product.images.length > 5) {
+        extra = Product.images.length - 5
+        for (let x = 1; x <= extra; x++) {
+            console.log(`remove`)
+            Product.images.splice(-1)
+        }
+    }
+
+
+
+    console.log(`PRODUCT.IMAGES :: ${Product.images}`)
+    // console.log(`PRODUCT.IMAGES Length :: ${Product.images.length}`)
+
+
+    var waitPix = setInterval(() => {
+        console.log(`New Images Length:: ${NewImages.length}`)
+        console.log(`Product IMAGES LENGTH:: ${Product.images.length}`)
+        console.log(`PRODUCT.IMAGES :: ${Product.images}`)
+
+
+        if (Product.images.length == NewImagesLength && NewImages.length !== 0) {
+            clearInterval(waitPix)
+
+            console.log(`NEW IMAGES LENGTH:: ${NewImages.length}`)
+            console.log(`Product IMAGES LENGTH:: ${Product.images.length}`)
+
+            console.log(`IMAGES UPLOADED LETS CREATE/UPDATE PRODUCT NOW`)
+
+            Product.FilePaths = filePathx
+            Product.images = []
+            Product.images = NewImages
+            if (method == 'create') CreateProduct(Product)
+            if (method == 'update') UpdateProduct(Product, id)
+        }
+    }, 1000)
+
+
+
+
+    connect()
+
+    // try {
+    //     admin.initializeApp({
+    //         credential: admin.credential.cert(serviceAccount),
+    //         databaseURL: "https://kidland-5754b-default-rtdb.firebaseio.com",
+    //         storageBucket: "kidland-5754b.appspot.com",
+    //     });
+    // } catch (ex) {
+    //     //console.log(ex)
+    // }
 
 
 
@@ -328,10 +372,10 @@ const uploadImages = async (Product, method , id) => {
         const destination = `pix/image_${num}.jpg`
         let downloadLink = ''
 
-        // var response = await axios(Product.images[0], { method: 'GET', responseType: 'stream' })
         try {
             var response = await axios(Product.images[0], { method: 'GET', responseType: 'stream' })
         } catch (ex) {
+            NewImagesLength += 1
             skipVoidImages(ex)
             return
         }
@@ -340,27 +384,27 @@ const uploadImages = async (Product, method , id) => {
         const file = admin.storage().bucket().file(destination)
 
         const writeStream = file.createWriteStream({
-            metadata: {
-                contentType: 'image/jpeg',
-            },
+            metadata: { contentType: 'image/jpeg', },
             public: true
         })
+
 
         await response.data.pipe(writeStream)
             .on('finish', () => {
                 console.log('success')
+
                 file.getSignedUrl({ action: 'read', expires: '01-01-2022' }).then(signedUrls => {
                     downloadLink = signedUrls[0];
                     console.log(downloadLink)
                     NewImages.push(downloadLink)
+                    NewImagesLength += 1
                     filePathx.push(destination)
                 })
             })
             .on('error', (err) => {
+                NewImagesLength += 1
                 console.log(`error : ${err}`)
             })
-
-
     }
 
 
@@ -374,6 +418,7 @@ const uploadImages = async (Product, method , id) => {
         try {
             var response = await axios(Product.images[1], { method: 'GET', responseType: 'stream' })
         } catch (ex) {
+            NewImagesLength += 1
             skipVoidImages(ex)
             return
         }
@@ -389,18 +434,20 @@ const uploadImages = async (Product, method , id) => {
         await response.data.pipe(writeStream)
             .on('finish', () => {
                 console.log('success')
+                console.log(writeStream)
+
                 file.getSignedUrl({ action: 'read', expires: '01-01-2022' }).then(signedUrls => {
                     downloadLink = signedUrls[0];
                     console.log(downloadLink)
                     NewImages.push(downloadLink)
+                    NewImagesLength += 1
                     filePathx.push(destination)
                 })
             })
             .on('error', (err) => {
+                NewImagesLength += 1
                 console.log(`error : ${err}`)
             })
-
-
     }
 
 
@@ -417,6 +464,7 @@ const uploadImages = async (Product, method , id) => {
         try {
             var response = await axios(Product.images[2], { method: 'GET', responseType: 'stream' })
         } catch (ex) {
+            NewImagesLength += 1
             skipVoidImages(ex)
             return
         }
@@ -432,14 +480,18 @@ const uploadImages = async (Product, method , id) => {
         await response.data.pipe(writeStream)
             .on('finish', () => {
                 console.log('success')
+                console.log(writeStream)
+
                 file.getSignedUrl({ action: 'read', expires: '01-01-2022' }).then(signedUrls => {
                     downloadLink = signedUrls[0];
                     console.log(downloadLink)
                     NewImages.push(downloadLink)
+                    NewImagesLength += 1
                     filePathx.push(destination)
                 })
             })
             .on('error', (err) => {
+                NewImagesLength += 1
                 console.log(`error : ${err}`)
             })
 
@@ -458,7 +510,9 @@ const uploadImages = async (Product, method , id) => {
         try {
             var response = await axios(Product.images[3], { method: 'GET', responseType: 'stream' })
         } catch (ex) {
+            NewImagesLength += 1
             skipVoidImages(ex)
+            return
         }
 
         const file = admin.storage().bucket().file(destination)
@@ -472,14 +526,18 @@ const uploadImages = async (Product, method , id) => {
         await response.data.pipe(writeStream)
             .on('finish', () => {
                 console.log('success')
+                console.log(writeStream)
+
                 file.getSignedUrl({ action: 'read', expires: '01-01-2022' }).then(signedUrls => {
                     downloadLink = signedUrls[0];
                     console.log(downloadLink)
                     NewImages.push(downloadLink)
+                    NewImagesLength += 1
                     filePathx.push(destination)
                 })
             })
             .on('error', (err) => {
+                NewImagesLength += 1
                 console.log(`error : ${err}`)
             })
 
@@ -500,7 +558,9 @@ const uploadImages = async (Product, method , id) => {
         try {
             var response = await axios(Product.images[4], { method: 'GET', responseType: 'stream' })
         } catch (ex) {
+            NewImagesLength += 1
             skipVoidImages(ex)
+            return
         }
 
         const file = admin.storage().bucket().file(destination)
@@ -514,54 +574,85 @@ const uploadImages = async (Product, method , id) => {
         await response.data.pipe(writeStream)
             .on('finish', () => {
                 console.log('success')
+                console.log(writeStream)
+
                 file.getSignedUrl({ action: 'read', expires: '01-01-2022' }).then(signedUrls => {
                     downloadLink = signedUrls[0];
                     console.log(downloadLink)
                     NewImages.push(downloadLink)
+                    NewImagesLength += 1
                     filePathx.push(destination)
                 })
             })
             .on('error', (err) => {
+                NewImagesLength += 1
                 console.log(`error : ${err}`)
             })
-
 
     }
 
 
 
-
-
-
-
-
-    var waitPix = setInterval(() => {
-        console.log()
-        console.log(`NewImages Length :: ${NewImages.length}`)
-        console.log()
-        if (Product.images.length >= NewImages.length) {
-            clearInterval(waitPix)
-            console.log(`IMAGES UPLOADED LETS CREATE PRODUCT NOW`)
-            Product.images = NewImages
-            Product.FilePaths = filePathx
-            console.log(`IMAGES :: ${Product.images}`)
-            //CreateProduct(Product)
-            if (method == 'create') CreateProduct(Product)
-            if (method == 'update') UpdateProduct(Product , id)
-        }
-    }, 1000)
-
 }
 
 const skipVoidImages = (ex) => {
     console.log('PRODUCT CREATE SKIP');
+    //console.log(ex)
     ProRefresh += 1
     ProList.push({ error: ex, description: 'image missing', action: 'dropping product' });
 }
 
 
-const CreateProduct = async (Product) => {
 
+const uploadImages2 = async () => {
+    fireConnect()
+
+    fetch('https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg')
+        .then(function (response) {
+            return response.blob()
+        })
+        .then(function (blob) {
+            console.log('blob :: ' + blob)
+            blob.arrayBuffer().then((buffer) => {
+                console.log('buffer :: ' + buffer)
+
+                var storageRef = firebase.storage().ref('/TestPix')
+                var ref = storageRef.child('/pic.jpg')
+
+                // var metadata = { contentType: blob.mimeT };
+
+                ref.put(buffer).then((res) => {
+                    console.log(`Img res :: ${res}`)
+                }).catch((err) => {
+                    console.log(` Error :: ${err}`)
+                })
+
+            })
+            return;
+
+
+
+
+
+
+
+        });
+
+
+
+
+
+
+
+
+}
+
+const base64_encode = async (image) => {
+    var base64 = await imageToBase64(image)
+    return base64
+}
+
+const CreateProduct = async (Product) => {
 
     var WooCommerceApi = WooCommerceRestApi.default;
 
@@ -583,6 +674,7 @@ const CreateProduct = async (Product) => {
 
     var Status = Product.hasOwnProperty('aggregatedStatusText') ? Product.aggregatedStatusText : ""
     var stockStatus = Status === "In stock" ? "instock" : "outofstock"
+    var stockQuantity = Product.hasOwnProperty('productStockInfo') ? Product.productStockInfo.stock : 0
 
     console.log(`Cat name :: ${Product.productType.name}`)
     var categoryId = await CategoryIdByName(Product.productSubType)
@@ -591,32 +683,37 @@ const CreateProduct = async (Product) => {
 
 
 
-    var proImages = []
-    Product.images.forEach((image) => {
-        proImages.push({ src: image })
-    })
+    // var proImages = []
+    // Product.images.forEach((image) => {
+    //     proImages.push({ src: image })
+    // })
+
+
+    var proImages = await arrangeImages2(Product)
+    console.log(`ARRANGED IMG :: ${proImages}`)
+
 
     console.log(`CREATE_PRODUCT : SKU :: ${Product.manufacturerSKU}  PRICE:${roundPrice}  STOCK:${stockStatus}   CATEGORY:${categoryId}   IMAGES:${proImages.length} `)
-
+    //console.log(Product)
 
     api.post("products", {
         name: Product.manufacturer.name + " " + Product.manufacturerSKU,
         type: "simple",
-        sku: 'sku_' + getRandom(0, 5000000000), //Product.manufacturerSKU,
+        sku: Product.manufacturerSKU,
         regular_price: roundPrice,
         price: roundPrice,
         manage_stock: true,
         stock_status: stockStatus,
-        stock_quantity: Product.productStockInfo.stock,
+        stock_quantity: stockQuantity,
         description: Product.longDescription,
         short_description: Product.shortDescription,
-        // categories: [
-        //     {
-        //         id: parseInt(categoryId) > 0 ? parseInt(categoryId) : 0
-        //     },
-        // ],
+        categories: [
+            {
+                id: parseInt(categoryId) > 0 ? parseInt(categoryId) : 0
+            },
+        ],
 
-        //        images: proImages,
+        images: proImages,
 
         attributes: [
             {
@@ -666,6 +763,13 @@ const CreateProduct = async (Product) => {
         var data = resp.data
         ProList.push({ method: "create", images: Product.images, productId: data.id, body: data, Files: Product.FilePaths });
     }).catch((error) => {
+        // admin.database().ref('/Woo/ErrorLogs').push({
+        //     sku: Product.manufacturerSKU,
+        //     images: Product.images,
+        //     category: categoryId,
+        //     product: Product,
+        //     error: error
+        // })
         console.log(`PRODUCT CREATE HAS FAILED BECAUSE : ${error}`)
         ProRefresh += 1
         ProList.push({ method: "create", error: "error" });
@@ -690,9 +794,9 @@ const UpdateProduct = async (Product, pid) => {
     console.log(`PRODUCT_UPDATE`)
 
 
-    console.log(`Cat name :: ${Product.productType.name}`)
-    var categoryId = await CategoryIdByName(Product.productSubType, api)
-    console.log(`CATEGORY ID :: ${categoryId}`)
+    // console.log(`Cat name :: ${Product.productType.name}`)
+    // var categoryId = await CategoryIdByName(Product.productSubType, api)
+    // console.log(`CATEGORY ID :: ${categoryId}`)
 
 
     var inputPrice = Product.hasOwnProperty('productPriceInfo') ? Product.productPriceInfo.price : 0
@@ -706,13 +810,11 @@ const UpdateProduct = async (Product, pid) => {
     var stockStatus = Status === "In stock" ? "instock" : "outofstock"
     var stockQuantity = Product.hasOwnProperty('productStockInfo') ? Product.productStockInfo.stock : 0
 
-    var proImages = []
-    Product.images.forEach((image) => {
-        proImages.push({ src: image })
-    })
+    // var proImages = await arrangeImages2(Product)
+    // console.log(`ARRANGED IMG :: ${proImages}`)
 
-    console.log(`UPDATE_PRODUCT : SKU :: ${Product.manufacturerSKU}  PRICE:${roundPrice}  STOCK:${stockStatus}   CATEGORY:${categoryId}   IMAGES:${proImages.length} `)
 
+    console.log(`UPDATE_PRODUCT : SKU :: ${Product.manufacturerSKU};   PRICE:${roundPrice};   STOCK:${stockStatus};`)
 
     api.put(`products/${pid}`, {
         name: Product.manufacturer.name + " " + Product.manufacturerSKU, // See more in https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties
@@ -722,14 +824,19 @@ const UpdateProduct = async (Product, pid) => {
         price: roundPrice,
         manage_stock: true,
         stock_status: stockStatus,
-        stock_quantity: stockQuantity ,
+        stock_quantity: stockQuantity,
         description: Product.longDescription,
         short_description: Product.shortDescription,
-        categories: [
-            {
-                id: parseInt(categoryId) > 0 ? parseInt(categoryId) : 0
-            },
-        ],
+        // categories: [
+        //     {
+        //         id: parseInt(categoryId) > 0 ? parseInt(categoryId) : 0
+        //     },
+        // ],
+
+
+        // images: proImages,
+
+
 
         attributes: [
             {
@@ -775,9 +882,9 @@ const UpdateProduct = async (Product, pid) => {
 
 
     }).then((resp) => {
-        console.log('product update success')
+        console.log('PRODUCT UPDATE SUCCESS')
         var data = resp.data
-        console.log(`PRODUCT UPDATED :: ${JSON.stringify(data)}`)
+        //console.log(`PRODUCT UPDATED :: ${JSON.stringify(data)}`)
         ProRefresh += 1
         ProList.push({ method: "update", images: Product.images, "productId": data.id, body: data });
     }).catch((ex) => {
@@ -791,6 +898,121 @@ const UpdateProduct = async (Product, pid) => {
 }
 
 
+
+const arrangeImages2 = async (Product) => {
+
+    console.log(`Product images :: ${Product.images.length}`)
+
+
+    // get size & make object with image src & size
+
+    var imagesInfo = []
+    if (Product.images[0]) imagesInfo.push(await getImageSize(Product.images[0]))
+    if (Product.images[1]) imagesInfo.push(await getImageSize(Product.images[1]))
+    if (Product.images[2]) imagesInfo.push(await getImageSize(Product.images[2]))
+    if (Product.images[3]) imagesInfo.push(await getImageSize(Product.images[3]))
+    if (Product.images[4]) imagesInfo.push(await getImageSize(Product.images[4]))
+
+    // sort objects
+
+    //  imagesInfo.sort(function (a, b) { return b - a });
+    imagesInfo = imagesInfo.sort((a, b) => b.width - a.width);
+
+    console.log(`IMAGE INFO :: ${JSON.stringify(imagesInfo)}`)
+
+    var images = []
+    imagesInfo.forEach((item) => { images.push({ src: item.src }) })
+    // images = images.reverse()
+
+    console.log(`IMAGES FINAL DATA:: ${JSON.stringify(images)}`)
+    return images
+
+
+}
+
+const getImageSize = async (Uri) => {
+    const response = await axios.get(Uri, { responseType: 'arraybuffer' })
+    const buffer = Buffer.from(response.data, "utf-8")
+    const resp = sizeOf(buffer)
+    resp.src = Uri
+    return resp
+}
+
+
+
+const arrangeImages = async (Product) => {
+
+    var proImages = []
+    Product.images.forEach((image) => {
+        proImages.push({ src: image })
+    })
+
+    var imgSizes = []
+
+
+    if (proImages[0]) {
+        var image = proImages[0]
+        var resp = await fetch(image.src)
+        var blob = await resp.blob();
+        console.log(`blob Size :: ${blob.size}`)
+
+
+        probe('http://example.com/image.jpg', function (err, result) {
+            console.log(result);
+
+        });
+
+        imgSizes.push({ image: image.src, size: blob.size })
+    }
+
+
+    if (proImages[1]) {
+        var image = proImages[1]
+        var resp = await fetch(image.src)
+        var blob = await resp.blob();
+        console.log(`blob Size :: ${blob.size}`)
+        imgSizes.push({ image: image.src, size: blob.size })
+    }
+
+
+    if (proImages[2]) {
+        var image = proImages[2]
+        var resp = await fetch(image.src)
+        var blob = await resp.blob();
+        console.log(`blob Size :: ${blob.size}`)
+        imgSizes.push({ image: image.src, size: blob.size })
+    }
+
+
+    if (proImages[3]) {
+        var image = proImages[3]
+        var resp = await fetch(image.src)
+        var blob = await resp.blob();
+        console.log(`blob Size :: ${blob.size}`)
+        imgSizes.push({ image: image.src, size: blob.size })
+    }
+
+
+    if (proImages[4]) {
+        var image = proImages[4]
+        var resp = await fetch(image.src)
+        var blob = await resp.blob();
+        console.log(`blob Size :: ${blob.size}`)
+        imgSizes.push({ image: image.src, size: blob.size })
+    }
+
+
+    imgSizes.sort(function (a, b) { return b - a });
+    var images = imgSizes.map((item) => ({ src: item.image }))
+
+    return images.reverse()
+
+    console.log(`IMAGE REFINED DATA:: ${JSON.stringify(imgSizes.reverse())}`)
+
+
+
+
+}
 
 
 const EURtoSwedish = async (Eur) => {
@@ -808,6 +1030,17 @@ const CategoryIdByName = async (categoryName) => {
     categories.forEach((category) => {
         if (category.name == categoryName) categoryId = category.id
     })
+
+    if (!categoryId) {
+        connect()
+        var categories = await admin.database().ref('/Woo/Categories').once('value')
+        categories.forEach((cat) => {
+            var category = cat.val()
+            if (category.name == categoryName) categoryId = category.id
+        })
+    }
+
+    if (!categoryId) categoryId = await createCategory(categoryName)
 
     if (categoryId) return categoryId
     if (!categoryId) return 0
@@ -841,11 +1074,12 @@ const createCategory = async (catName) => {
         var resp = await api.post("products/categories", { name: catName })
         console.log(`CREATED CATEGORY :: ${resp.data}`)
 
-        var categories = JSON.parse(fs.readFileSync(`${__dirname}/categories.json`, 'utf-8'))
-        categories.push({ name: resp.data.name, id: resp.data.id })
-        fs.writeFile(`${__dirname}/categories.json`, JSON.stringify(categories), () => {
-            console.log(`categories updated`)
+        connect()
+        admin.database().ref('/Woo/Categories').push({
+            id: resp.data.id,
+            name: resp.data.name
         })
+
 
         return resp.data.id
 
@@ -858,7 +1092,83 @@ const createCategory = async (catName) => {
 
 }
 
+const connect = () => {
+    try {
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount),
+            databaseURL: "https://kidland-5754b-default-rtdb.firebaseio.com",
+            storageBucket: "kidland-5754b.appspot.com",
+        });
+    } catch (ex) {
+        //console.log(ex)
+    }
 
+}
+
+const fireConnect = () => {
+    try { firebase.initializeApp(config) } catch (ex) { console.log('') }
+}
+
+
+nodejsAxiosCheckout = (req, res) => {
+
+
+    var data = JSON.stringify({
+        "checkout": {
+            "termsUrl": "http://localhost:8080/terms",
+            "cancelURL": "https://cancellation-identifier-url",
+            "returnURL": "https://127.0.0.1/redirect.php",
+            "consumerType": {
+                "supportedTypes": [
+                    "B2C",
+                    "B2B"
+                ],
+                "default": "B2C"
+            },
+            "integrationType": "HostedPaymentPage"
+        },
+        "order": {
+            "reference": "MiaSDK-iOS",
+            "currency": "SEK",
+            "amount": 10000,
+            "items": [
+                {
+                    "unit": "pcs",
+                    "netTotalAmount": 10000,
+                    "taxAmount": 0,
+                    "grossTotalAmount": 10000,
+                    "quantity": 1,
+                    "name": "Lightning Cable",
+                    "unitPrice": 10000,
+                    "taxRate": 0,
+                    "reference": "MiaSDK-iOS"
+                }
+            ]
+        }
+    });
+
+
+    var config = {
+        method: 'post',
+        url: 'https://test.api.dibspayment.eu/v1/payments',
+        headers: {
+            'Authorization': 'Bearer 34562d73070744c1971de3f6e0051c8d',
+            'Content-Type': 'application/json',
+            // 'Cookie': 'visid_incap_1152503=HGd6Tm74RTiiMU4QW/LAkrksKmEAAAAAQUIPAAAAAAAbQQFsWI211iPl3pD9/M6Q; incap_ses_958_1967659=h6tIZNjHfzK6MdToV4BLDURhPGEAAAAAGTKuKge19102wgqkjJYXJw==; visid_incap_1967659=hsA3fPW5S3Cvb8aXlhDEPKbdLWEAAAAAQUIPAAAAAAAGQfetqrrxmsxl7vg78BwS'
+        },
+        data: data
+    };
+
+    axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            return res.send(JSON.stringify(response.data))
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+}
 
 module.exports = {
     ImageProxy,
@@ -866,5 +1176,6 @@ module.exports = {
     WooCreate,
     EmailApi,
     postToForm,
+    nodejsAxiosCheckout
 
 }

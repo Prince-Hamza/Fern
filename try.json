@@ -1,0 +1,989 @@
+{
+    "puid" : "2868037000",
+    "ean" : "0672042120536",
+    "manufacturerSKU" : "CBL-0484L",
+    "icecatId" : "19925548",
+    "cnetId" : "S11938955",
+    "eClass" : "27-06-90-90",
+    "eClassV7" : "27-06-90-90",
+    "customsTariffNumber" : "84715000",
+    "UNSPSC" : "43211609",
+    "manufacturer" : {
+      "id" : "1120",
+      "name" : "SUPER MICRO Computer",
+      "shortName" : "Supermicro",
+      "deeplink" : "https://www.itscope.com/red/app#companies/page/NFSzHP_UEeC4CQAbIT6RAg/-"
+    },
+    "productName" : "Supermicro CBL-0484L - 0.55 m - SATA I - Male/Male - Black - White - Straight - Straight",
+    "shortDescription" : "SATA/SATA - 55 cm",
+    "longDescription" : "Supermicro CBL-0484L. Cable length: 0.55 m, Cable type: SATA I, Connector gender: Male/Male",
+    "productType" : {
+      "id" : "104",
+      "productTypeGroup" : {
+        "id" : "ZUB",
+        "name" : "Accessories"
+      },
+      "name" : "Cables & Adapters",
+      "attributeTypeId1" : "104204000",
+      "attributeTypeName1" : "Application",
+      "attributeTypeId2" : "104204050",
+      "attributeTypeId3" : "104101040",
+      "attributeTypeName3" : "Type",
+      "attributeTypeId4" : "104021300",
+      "attributeTypeName4" : "Video / network interfaces",
+      "attributeTypeId5" : "104021000",
+      "attributeTypeName5" : "Network standards"
+    },
+    "attributeValue1" : "Digital",
+    "attributeValue3" : "Cable",
+    "productSubTypeId" : "CBL_PT_CABLE__",
+    "productSubType" : "Cable",
+    "colorFamilyId" : "COL_BLACK__",
+    "colorFamily" : "Black",
+    "estimateGrossWeight" : "0.009",
+    "valueAddedTaxGermany" : "19",
+    "deeplink" : "https://www.itscope.com/red/app#products/page/2868037000/-",
+    "standardHtmlDatasheet" : "https://datasheet.itscope.com/VKokVpfkVyyqx7oJ0Z5voK1nBu3uGDVjsZPZ32WIL2nS6QFmBJ1X4enr1g6nayNaCdp5snBFVcCK0Vv6QTwasldjd05fXfRdYKWjYCUO-nuw7yG23jK7j5v2q5F4UKTT3H_mLrJAqgVIKN1-X1pQTv8G1gL6znl0CJFllVxhhCse5zL85gIqcypMBLSwthUe",
+    "standardPdfDatasheet" : "https://datasheet.itscope.com/9hw23DY7H5tDWsKlieOa_0lVHVBo5O2ozVU3gS3tMHvS6QFmBJ1X4enr1g6nayNaCdp5snBFVcCK0Vv6QTwashPyvJHVD1TPedQMSmNwTld34mBtOGCwT7IbdNionG5hUMd2vQgMct5BtcUmjx4q_blrOyFsiZqsD6Sk1pww01PfeyHlzNpodIaDKqxQuYFj",
+    "manufacturerSite" : "http://store.supermicro.com/cable/55cm-sata-cbl-0484l.html",
+    "imageThumb" : "https://media.itscope.com/img/p/ZYhzNObiFQkD6f7Vwjgc84j6efzs4bB2GSQKXybJw3s=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeV90aHVtYnMvMTk5MjU1NDhfNjUyNzkzNjAxOC5qcGc=?",
+    "imageThumbWidth" : "75",
+    "imageThumbHeight" : "75",
+    "imageHighRes1" : "https://media.itscope.com/img/p/rGtQokIMhz0clCRYjCXQgHW6yXJz75QLzNP_Nbl5CDA=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeS8xOTkyNTU0OF82NTI3OTM2MDE4LmpwZw==?",
+    "imageWidth1" : "403",
+    "imageHeight1" : "322",
+    "image2" : "https://media.itscope.com/img/p/gySwYkTmHpz0jNx0lk7fkpvvN9QfnDiomI0At037Aok=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeS8xOTkyNTU0OF85Njc2ODQyNTM0LmpwZw==?",
+    "imageWidth2" : "369",
+    "imageHeight2" : "260",
+    "image3" : "https://media.itscope.com/img/p/wO14KC5KK1EEP7K9gaO5OFIYmvRKGNLcvIWEdqmwbRo=/aHR0cDovL3d3dy5tZW1vcnlzb2x1dGlvbi5kZS9wcm9kdWt0YmlsZC9TLUNCTC0wNDg0TC5wbmc=?",
+    "entryDate" : "2013-07-26T00:50:24+02:00",
+    "rank" : "188887",
+    "qualification" : "3",
+    "htmlMainSpecs" : "<div id=\"HTML_SPEC\" class=\"ITSs\"><div class=\"ITSg\">General</div><div class=\"ITSr0\"><div class=\"ITSn\">Cable length</div><div class=\"ITSv\">0.55 m</div></div><div class=\"ITSr1\"><div class=\"ITSn\">Cable type</div><div class=\"ITSv\">SATA I</div></div><div class=\"ITSr0\"><div class=\"ITSn\">Connector gender</div><div class=\"ITSv\">Male/Male</div></div></div>",
+    "productPriceInfo" : {
+      "price" : "3.62",
+      "priceCalc" : "4.98",
+      "currencyCode" : "EUR",
+      "priceCalcVat" : "25",
+      "priceLastUpdate" : "2021-08-29T07:41:31+02:00",
+      "minScale" : "1",
+      "priceSourceId" : "4",
+      "priceSourceName" : "General price list",
+      "priceStatus" : "Data retrieval was successful.",
+      "priceSupplierId" : "10000179",
+      "priceSupplierName" : "Sander Computer Systeme",
+      "priceSupplierItemId" : "43490604",
+      "priceSupplierSKU" : "CBL-0484L"
+    },
+    "productStockInfo" : {
+      "stockSupplierText" : "3698",
+      "stockStatus" : "1",
+      "stockStatusText" : "3698 In stock",
+      "stock" : "3698",
+      "stockLastUpdate" : "2021-08-29T07:41:31+02:00",
+      "stockSourceId" : "4",
+      "stockSourceName" : "General price list",
+      "stockUnlimited" : "false"
+    },
+    "aggregatedStatus" : "1",
+    "aggregatedStatusText" : "In stock",
+    "aggregatedStock" : "3711",
+    "aggregatedSupplierItems" : "3",
+    "contractTypeId" : "0",
+    "contractTypeName" : "Standard product",
+    "supplierItems" : [ {
+      "id" : "109876551",
+      "ean" : "0672042120536",
+      "manufacturerSKU" : "CBL-0484L",
+      "supplierSKU" : "1095113",
+      "supplier" : {
+        "id" : "10000450",
+        "name" : "Happyware",
+        "deeplink" : "https://www.itscope.com/red/app#companies/page/NFNPGP_UEeC4CQAbIT6RAg/-"
+      },
+      "manufacturerName" : "supermicro",
+      "productName" : "CBL-0484L 0.55m SATA SATA Black,White SATA cable",
+      "conditionId" : "1",
+      "conditionName" : "New",
+      "eolProduct" : "false",
+      "matchQuality" : "116",
+      "eanValid" : "true",
+      "specialOffer" : "false",
+      "contractTypeId" : "0",
+      "contractTypeName" : "Standard product",
+      "supplierPriceInfo" : [ {
+        "price" : "0.00",
+        "priceCalc" : "0.00",
+        "currencyCode" : "EUR",
+        "priceCalcVat" : "25",
+        "priceLastUpdate" : "2021-08-28T19:57:44+02:00",
+        "minScale" : "1",
+        "priceSourceId" : "4",
+        "priceSourceName" : "General price list",
+        "priceStatus" : "Prices are only stated by the distributor upon request."
+      } ],
+      "supplierStockInfo" : [ {
+        "stockSupplierText" : "11",
+        "stockStatus" : "1",
+        "stockStatusText" : "11 In stock",
+        "stock" : "11",
+        "stockLastUpdate" : "2021-08-28T19:57:44+02:00",
+        "stockSourceId" : "4",
+        "stockSourceName" : "General price list",
+        "stockUnlimited" : "false"
+      } ],
+      "projects" : [ ]
+    }, {
+      "id" : "41891588",
+      "ean" : "0672042120536",
+      "manufacturerSKU" : "CBL-0484L",
+      "supplierSKU" : "409260",
+      "supplier" : {
+        "id" : "10000030",
+        "name" : "CTT Computertechnik",
+        "deeplink" : "https://www.itscope.com/red/app#companies/page/NFLMjP_UEeC4CQAbIT6RAg/-"
+      },
+      "manufacturerName" : "Supermicro",
+      "productName" : "CBL-0484L SATA Kabel 55 cm",
+      "longDescription" : "SATA-Kabel, gerade auf gerade, 55 cm, 30 AWG",
+      "conditionId" : "1",
+      "conditionName" : "New",
+      "eolProduct" : "false",
+      "matchQuality" : "116",
+      "eanValid" : "true",
+      "specialOffer" : "false",
+      "deeplink" : "https://www.ctt.de/supermicro-cbl-0484l-sata-kabel-55-cm-409260.html",
+      "contractTypeId" : "0",
+      "contractTypeName" : "Standard product",
+      "supplierPriceInfo" : [ {
+        "price" : "4.61",
+        "priceCalc" : "6.34",
+        "currencyCode" : "EUR",
+        "priceCalcVat" : "25",
+        "priceLastUpdate" : "2021-08-29T05:40:22+02:00",
+        "minScale" : "1",
+        "priceSourceId" : "4",
+        "priceSourceName" : "General price list",
+        "priceStatus" : "Data retrieval was successful."
+      } ],
+      "supplierStockInfo" : [ {
+        "stockSupplierText" : "2",
+        "stockStatus" : "1",
+        "stockStatusText" : "2 In stock",
+        "stock" : "2",
+        "stockLastUpdate" : "2021-08-29T05:40:22+02:00",
+        "stockSourceId" : "4",
+        "stockSourceName" : "General price list",
+        "stockUnlimited" : "false"
+      } ],
+      "projects" : [ ]
+    },
+    
+    
+    
+    {
+      "id" : "43490604",
+      "manufacturerSKU" : "CBL-0484L",
+      "supplierSKU" : "CBL-0484L",
+      "supplier" : {
+        "id" : "10000179",
+        "name" : "Sander Computer Systeme",
+        "deeplink" : "https://www.itscope.com/red/app#companies/page/NFL-vv_UEeC4CQAbIT6RAg/-"
+      },
+      "manufacturerName" : "SUPERMICRO",
+      "productName" : "CBL-0484L",
+      "conditionId" : "1",
+      "conditionName" : "New",
+      "eolProduct" : "false",
+      "matchQuality" : "116",
+      "eanValid" : "false",
+      "specialOffer" : "false",
+      "deeplink" : "http://www.sander-europe.de/index.php?g=products&pr=33760&lang=2",
+      "contractTypeId" : "0",
+      "contractTypeName" : "Standard product",
+      "supplierPriceInfo" : [ {
+        "price" : "3.62",
+        "priceCalc" : "4.98",
+        "currencyCode" : "EUR",
+        "priceCalcVat" : "25",
+        "priceLastUpdate" : "2021-08-29T07:41:31+02:00",
+        "minScale" : "1",
+        "priceSourceId" : "4",
+        "priceSourceName" : "General price list",
+        "priceStatus" : "Data retrieval was successful."
+      } ],
+      "supplierStockInfo" : [ {
+        "stockSupplierText" : "3698",
+        "stockStatus" : "1",
+        "stockStatusText" : "3698 In stock",
+        "stock" : "3698",
+        "stockLastUpdate" : "2021-08-29T07:41:31+02:00",
+        "stockSourceId" : "4",
+        "stockSourceName" : "General price list",
+        "stockUnlimited" : "false"
+      } ],
+      "projects" : [ ]
+    } ],
+    "attributes" : [ ],
+    "attributeClusters" : [ ],
+    "keyContents" : [ {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "12",
+        "name" : "CNET KEYCONTENT: Product-ID"
+      },
+      "contentProvider" : {
+        "id" : "3",
+        "name" : "CNET Content Solutions",
+        "rank" : "10"
+      },
+      "contentCategory" : {
+        "id" : "25",
+        "name" : "CNET-ID"
+      },
+      "value" : "S11938955",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "41",
+        "name" : "eClass-9.1-ID"
+      },
+      "value" : "27-06-90-90",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "56",
+        "name" : "eClass-11.1-ID"
+      },
+      "value" : "27-06-90-90",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "42",
+        "name" : "eClass-8.0-ID"
+      },
+      "value" : "27-06-90-90",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "33",
+        "name" : "UNSPSC code"
+      },
+      "value" : "43211609",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "32",
+        "name" : "eClass7 ID"
+      },
+      "value" : "27-06-90-90",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "7664",
+        "name" : "api Österreich KEYS"
+      },
+      "contentProvider" : {
+        "id" : "3034",
+        "name" : "api Österreich",
+        "rank" : "50"
+      },
+      "contentCategory" : {
+        "id" : "23",
+        "name" : "Customs tariff number"
+      },
+      "value" : "84715000",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "3881",
+        "name" : "JACOB KEYCONTENT"
+      },
+      "contentProvider" : {
+        "id" : "1691",
+        "name" : "JACOB Elektronik",
+        "rank" : "50"
+      },
+      "contentCategory" : {
+        "id" : "39",
+        "name" : "eClass-8.1-ID"
+      },
+      "value" : "19-15-90-90",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "3881",
+        "name" : "JACOB KEYCONTENT"
+      },
+      "contentProvider" : {
+        "id" : "1691",
+        "name" : "JACOB Elektronik",
+        "rank" : "50"
+      },
+      "contentCategory" : {
+        "id" : "24",
+        "name" : "eClass ID"
+      },
+      "value" : "19-03-03-08",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "13",
+        "name" : "ICEcat KEYCONTENT"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "27",
+        "name" : "ICECat-ID"
+      },
+      "value" : "19925548",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "37",
+        "name" : "ETIM-7-Electrical-ID"
+      },
+      "value" : "EC003249",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "44",
+        "name" : "eClass-6.2-ID"
+      },
+      "value" : "27-06-90-90",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "36",
+        "name" : "eClass-10.1-ID"
+      },
+      "value" : "27-06-90-90",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "24",
+        "name" : "eClass ID"
+      },
+      "value" : "27-06-90-90",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "3941",
+        "name" : "api KEYCONTENT"
+      },
+      "contentProvider" : {
+        "id" : "1711",
+        "name" : "api",
+        "rank" : "50"
+      },
+      "contentCategory" : {
+        "id" : "23",
+        "name" : "Customs tariff number"
+      },
+      "value" : "84715000",
+      "lang" : "zxx"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "95",
+        "name" : "ITscope generated Keycontent"
+      },
+      "contentProvider" : {
+        "id" : "4",
+        "name" : "ITscope",
+        "rank" : "12"
+      },
+      "contentCategory" : {
+        "id" : "39",
+        "name" : "eClass-8.1-ID"
+      },
+      "value" : "27-06-90-90",
+      "lang" : "zxx"
+    } ],
+    "mediaContents" : [ {
+      "key" : "9211128",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "42",
+        "name" : "ICEcat MEDIA: Advanced Manufacturer Pictures"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "9",
+        "name" : "Product photo"
+      },
+      "contentTag" : [ {
+        "id" : "30",
+        "name" : "AdditionalImage",
+        "rank" : "4",
+        "source" : "itscope"
+      }, {
+        "id" : "137",
+        "name" : "GalleryPic",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "https://media.itscope.com/img/p/gySwYkTmHpz0jNx0lk7fkpvvN9QfnDiomI0At037Aok=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeS8xOTkyNTU0OF85Njc2ODQyNTM0LmpwZw==?",
+      "lang" : "zxx",
+      "mimeType" : "image/jpeg",
+      "imageWidth" : "369",
+      "imageHeight" : "260"
+    }, {
+      "key" : "47900",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "741",
+        "name" : "CTT Computertechnik MEDIA"
+      },
+      "contentProvider" : {
+        "id" : "451",
+        "name" : "CTT Computertechnik",
+        "rank" : "20"
+      },
+      "contentCategory" : {
+        "id" : "9",
+        "name" : "Product photo"
+      },
+      "contentTag" : [ {
+        "id" : "2",
+        "name" : "ProductImage",
+        "rank" : "1",
+        "source" : "itscope"
+      }, {
+        "id" : "153",
+        "name" : "BILDLINK",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "https://media.itscope.com/img/p/EXIKfsGnXrB5RXVJBqHHNWYYJMPUnbH0yJavnPOFzfo=/aHR0cHM6Ly93d3cuY3R0LmRlL3B1Yi9tZWRpYS9jYXRhbG9nL3Byb2R1Y3QvNC8wLzQwOTI2MF8xLmpwZw==?",
+      "lang" : "zxx",
+      "mimeType" : "image/jpeg"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "25",
+        "name" : "ICEcat MEDIA: Default Picture"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "9",
+        "name" : "Product photo"
+      },
+      "contentTag" : [ {
+        "id" : "2",
+        "name" : "ProductImage",
+        "rank" : "1",
+        "source" : "itscope"
+      }, {
+        "id" : "107",
+        "name" : "LowPic",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "https://media.itscope.com/img/p/L3w6wi2if68Y3uUXkCZcZ8Vc8jmE_t4X7rxCh4XEkbM=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeV9sb3dzLzE5OTI1NTQ4XzY1Mjc5MzYwMTguanBn?",
+      "lang" : "zxx",
+      "mimeType" : "image/jpeg",
+      "imageWidth" : "200",
+      "imageHeight" : "159"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "40",
+        "name" : "ICEcat MEDIA: Default Picture medium (400x2xx)"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "9",
+        "name" : "Product photo"
+      },
+      "contentTag" : [ {
+        "id" : "2",
+        "name" : "ProductImage",
+        "rank" : "1",
+        "source" : "itscope"
+      }, {
+        "id" : "131",
+        "name" : "HighPic",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "https://media.itscope.com/img/p/rGtQokIMhz0clCRYjCXQgHW6yXJz75QLzNP_Nbl5CDA=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeS8xOTkyNTU0OF82NTI3OTM2MDE4LmpwZw==?",
+      "lang" : "zxx",
+      "mimeType" : "image/jpeg",
+      "imageWidth" : "403",
+      "imageHeight" : "322"
+    }, {
+      "key" : "46417",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "781",
+        "name" : "Memorysolution MEDIA"
+      },
+      "contentProvider" : {
+        "id" : "471",
+        "name" : "Memorysolution",
+        "rank" : "40"
+      },
+      "contentCategory" : {
+        "id" : "9",
+        "name" : "Product photo"
+      },
+      "contentTag" : [ {
+        "id" : "30",
+        "name" : "AdditionalImage",
+        "rank" : "4",
+        "source" : "itscope"
+      }, {
+        "id" : "157",
+        "name" : "Bild",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "https://media.itscope.com/img/p/wO14KC5KK1EEP7K9gaO5OFIYmvRKGNLcvIWEdqmwbRo=/aHR0cDovL3d3dy5tZW1vcnlzb2x1dGlvbi5kZS9wcm9kdWt0YmlsZC9TLUNCTC0wNDg0TC5wbmc=?",
+      "lang" : "zxx",
+      "mimeType" : "image/jpeg"
+    }, {
+      "key" : "9211127",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "42",
+        "name" : "ICEcat MEDIA: Advanced Manufacturer Pictures"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "9",
+        "name" : "Product photo"
+      },
+      "contentTag" : [ {
+        "id" : "30",
+        "name" : "AdditionalImage",
+        "rank" : "4",
+        "source" : "itscope"
+      }, {
+        "id" : "137",
+        "name" : "GalleryPic",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "https://media.itscope.com/img/p/rGtQokIMhz0clCRYjCXQgHW6yXJz75QLzNP_Nbl5CDA=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeS8xOTkyNTU0OF82NTI3OTM2MDE4LmpwZw==?",
+      "lang" : "zxx",
+      "mimeType" : "image/jpeg",
+      "imageWidth" : "403",
+      "imageHeight" : "322"
+    }, {
+      "key" : "2868037000",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "45",
+        "name" : "ICEcat MEDIA: Manufacturer WEB"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "5",
+        "name" : "Manufacturer website"
+      },
+      "contentTag" : [ {
+        "id" : "513",
+        "name" : "ProductURL",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "http://store.supermicro.com/cable/55cm-sata-cbl-0484l.html",
+      "lang" : "en",
+      "mimeType" : "text/html"
+    }, {
+      "key" : "2868037000",
+      "langId" : "504",
+      "contentModel" : {
+        "id" : "41",
+        "name" : "ICEcat MEDIA: Default Picture small (75x75)"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "9",
+        "name" : "Product photo"
+      },
+      "contentTag" : [ {
+        "id" : "2",
+        "name" : "ProductImage",
+        "rank" : "1",
+        "source" : "itscope"
+      }, {
+        "id" : "108",
+        "name" : "ThumbPic",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "https://media.itscope.com/img/p/ZYhzNObiFQkD6f7Vwjgc84j6efzs4bB2GSQKXybJw3s=/aHR0cHM6Ly9pbmlzaG9wLmNvbS9pbWcvZ2FsbGVyeV90aHVtYnMvMTk5MjU1NDhfNjUyNzkzNjAxOC5qcGc=?",
+      "lang" : "zxx",
+      "mimeType" : "image/jpeg",
+      "imageWidth" : "75",
+      "imageHeight" : "75"
+    }, {
+      "key" : "2868037000",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "23",
+        "name" : "ICEcat MEDIA: PDF multilingual"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "19",
+        "name" : "Product data sheet"
+      },
+      "contentTag" : [ {
+        "id" : "139",
+        "name" : "Link",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "http://prf.icecat.biz/index.cgi?product_id=19925548;mi=start;smi=product;shopname=itscope2;lang=en",
+      "lang" : "en",
+      "mimeType" : "text/html"
+    } ],
+    "refContents" : [ ],
+    "textContents" : [ {
+      "key" : "868633",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "8025",
+        "name" : "IceCAT MAINSPECS"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "3",
+        "name" : "Structured feature texts"
+      },
+      "contentTag" : [ {
+        "id" : "512",
+        "name" : "MainSpec",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "<div id=\"HTML_SPEC\" class=\"ITSs\"><div class=\"ITSg\">Allgemein</div><div class=\"ITSr0\"><div class=\"ITSn\">Cable length</div><div class=\"ITSv\">0.55 m</div></div><div class=\"ITSr1\"><div class=\"ITSn\">Cable type</div><div class=\"ITSv\">SATA I</div></div><div class=\"ITSr0\"><div class=\"ITSn\">Connector gender</div><div class=\"ITSv\">Male/Male</div></div></div>",
+      "lang" : "en",
+      "mimeType" : "text/html"
+    }, {
+      "key" : "2868037000",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "6186",
+        "name" : "ITscope Legacy Product Name (itspbz)"
+      },
+      "contentProvider" : {
+        "id" : "16",
+        "name" : "ITscope Legacy",
+        "rank" : "13"
+      },
+      "contentCategory" : {
+        "id" : "16",
+        "name" : "Product name"
+      },
+      "contentTag" : [ {
+        "id" : "23",
+        "name" : "Produktbezeichner, kurz",
+        "rank" : "0",
+        "source" : "itscope"
+      } ],
+      "value" : "CBL-0484L - 0.55 m - SATA I - Male/Male - Black - White - Straight - Straight",
+      "lang" : "en",
+      "mimeType" : "text/plain"
+    }, {
+      "key" : "4978032",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "50",
+        "name" : "ICEcat TEXT"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "16",
+        "name" : "Product name"
+      },
+      "contentTag" : [ {
+        "id" : "25",
+        "name" : "Produktbeschreibung, kurz",
+        "rank" : "2",
+        "source" : "itscope"
+      }, {
+        "id" : "130",
+        "name" : "ShortDesc",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "SATA/SATA, 55 cm",
+      "lang" : "en",
+      "mimeType" : "application/plain"
+    }, {
+      "key" : "13737771",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "50",
+        "name" : "ICEcat TEXT"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "16",
+        "name" : "Product name"
+      },
+      "contentTag" : [ {
+        "id" : "24",
+        "name" : "Produktbezeichner, lang",
+        "rank" : "3",
+        "source" : "itscope"
+      }, {
+        "id" : "128",
+        "name" : "LongSummaryDescription",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "Supermicro CBL-0484L. Cable length: 0.55 m, Cable type: SATA I, Connector gender: Male/Male",
+      "lang" : "en",
+      "mimeType" : "application/plain"
+    }, {
+      "key" : "15119712",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "50",
+        "name" : "ICEcat TEXT"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "16",
+        "name" : "Product name"
+      },
+      "contentTag" : [ {
+        "id" : "23",
+        "name" : "Produktbezeichner, kurz",
+        "rank" : "0",
+        "source" : "itscope"
+      }, {
+        "id" : "511",
+        "name" : "ProductTitle",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "Supermicro CBL-0484L, 0.55 m, SATA I, Male/Male, Black, White, Straight, Straight",
+      "lang" : "en",
+      "mimeType" : "application/plain"
+    }, {
+      "key" : "2868037000",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "6187",
+        "name" : "ITscope Legacy Short Info (itskurzinfo)"
+      },
+      "contentProvider" : {
+        "id" : "16",
+        "name" : "ITscope Legacy",
+        "rank" : "13"
+      },
+      "contentCategory" : {
+        "id" : "16",
+        "name" : "Product name"
+      },
+      "contentTag" : [ {
+        "id" : "25",
+        "name" : "Produktbeschreibung, kurz",
+        "rank" : "2",
+        "source" : "itscope"
+      } ],
+      "value" : "SATA/SATA, 55 cm",
+      "lang" : "en",
+      "mimeType" : "text/plain"
+    }, {
+      "key" : "1370550",
+      "langId" : "124",
+      "contentModel" : {
+        "id" : "50",
+        "name" : "ICEcat TEXT"
+      },
+      "contentProvider" : {
+        "id" : "2",
+        "name" : "ICEcat.biz",
+        "rank" : "11"
+      },
+      "contentCategory" : {
+        "id" : "15",
+        "name" : "Product type/group"
+      },
+      "contentTag" : [ {
+        "id" : "18",
+        "name" : "Produktgruppe",
+        "rank" : "51",
+        "source" : "itscope"
+      }, {
+        "id" : "136",
+        "name" : "Category",
+        "rank" : "255",
+        "source" : "supplier"
+      } ],
+      "value" : "SATA Cables",
+      "lang" : "en",
+      "mimeType" : "text/plain"
+    } ],
+
+    
+    "historicalDataItems" : [ ]
+  }

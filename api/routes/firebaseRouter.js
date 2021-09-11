@@ -2,6 +2,7 @@
 const express = require('express')
 const FireController = require('../controller/fireControl')
 const WooApi = require('../controller/WooApi')
+const DeleteApi = require('../controller/DeleteApi')
 
 const router = express.Router()
 
@@ -17,13 +18,14 @@ router.post('/imageup', WooApi.ImageProxy)
 router.get('/signup/:id', FireController.SignUp)
 router.get('/signin/:id', FireController.SignIn)
 router.get('/eurtokrona/:amount', WooApi.currencyExchange)
-router.get('/postform/:id' , WooApi.postToForm)
-router.get('/getform' , WooApi.EmailApi)
+router.get('/postform/:id', WooApi.postToForm)
+router.get('/getform', WooApi.EmailApi)
 // router.get('/stream/:key', WooApi.StreamJson)
 router.post('/woo', WooApi.WooCreate)
 
+router.get('/nets', WooApi.nodejsAxiosCheckout)
 
-
+router.get('/deleteapi/:id', DeleteApi.DelByBrand)
 
 module.exports = router
 

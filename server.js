@@ -62,9 +62,13 @@ wsServer.on('connect', function (ws) {
     console.log("connected")
     app.ws = ws;
 
-    app.get('/api/stream/:key', function (req, res) {
+    app.get('/api/stream/:key/:resume', function (req, res) {
 
-        // return res.send(`Resp Key:${req.params.key}`) //530415fa-b0bc-4a01-bd62-4598dd579cd2
+        console.log('Api Starts')
+        console.log(req.params.key)
+        console.log(req.params.resume)
+
+        var proReadyCount = 0, resumeCount = req.params.resume
         var stream = request.get(`https://api.itscope.com/2.0/products/exports/${req.params.key}`).auth('m135172', 'GXBlezJK0n-I55K4RV_f0vHIRrFq_YcTNh9Yz735LJs', false)
 
         File = "", count = 1;
@@ -73,10 +77,6 @@ wsServer.on('connect', function (ws) {
             File += Buffer.from(chunk).toString()
         });
 
-        // stream.on('complete', () => {
-        //     return res.json({ stream: 'end' })
-        // });
-
 
         ObserveSplit(0, 100000)
 
@@ -84,12 +84,12 @@ wsServer.on('connect', function (ws) {
 
         setInterval(() => {
             if (ProductReady !== '') {
-                //let SendProduct = ProductReady
-                //console.log(`PARSED AND SENT A NEW PRODUCT`)
-                ws.send(JSON.stringify(ProductReady))
+                proReadyCount++
+             //   console.log(`Product ready Count :: ${proReadyCount}`)
+                if (proReadyCount >= resumeCount) ws.send(JSON.stringify(ProductReady))
+                if (proReadyCount <= resumeCount) ws.send(JSON.stringify({ Skip: true }))
                 ProductReady = ''
             }
-
         }, 500)
 
 
